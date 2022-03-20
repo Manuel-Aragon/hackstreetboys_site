@@ -31,5 +31,3 @@ html/
 firebase-debug.log
 .firebase/
 .github/
-.firebaserc
-.firebase.json
