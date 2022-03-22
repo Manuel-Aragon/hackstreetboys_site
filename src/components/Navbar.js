@@ -1,49 +1,19 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-   
-import React, { useContext } from 'react'
-import { auth } from '../firebase-config'
-
-export const Navbar = ({ user }) => {
-
+export const Navbar = () => {
 
     return (
-        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
-         <div class="container">
-           <ul class="navbar-nav ms-auto">
-           <li class="nav-item">
-               <a href="#learn" class="nav-link">Hackstreet Boys</a>
-             </li>
-             <li class="nav-item">
-               <a href="#learn" class="nav-link">Merch</a>
-             </li>
-             <li class="nav-item">
-               <a href="#learn" class="nav-link">Events</a>
-             </li>
-             <li class="nav-item">
-               <a href="#learn" class="nav-link">Anouncements</a>
-             </li>
-             <li class="nav-item">
-               <a href="#learn" class="nav-link">Bio</a>
-             </li>
-           </ul>
-           <div class="collapse navbar-collapse" id="navmenu">
-             <ul class="navbar-nav ms-auto">
-               <li class="nav-item">
-                   <li class="nav-item">
-                       <button type="button" class="btn btn-secondary">TICKET</button>
-                     </li>
-                   <li class="nav-item">
-                     <button type="button" class="btn btn-secondary">CART</button>
-                   </li>
-                   <button type="button" class="btn btn-danger">LOGOUT</button>
-                 </li>
-                 <li class="nav-item">
-                   <button type="button" class="btn btn-primary">Profile</button>
-                 </li>
-             </ul>
-           </div>
-         </div>
-         
-       </nav>
+        <div className='navbox'>
+            <div className='leftside'>
+                <span><Link to="merch" className='navlink'>Merch</Link></span>
+                <span><Link to="events" className='navlink'>Events</Link></span>
+                <span><Link to="bio" className='navlink'>Bio</Link></span>
+            </div>
+            {<div className='rightside'>
+                <span><Link to="signup" className='navlink'>SIGN UP</Link></span>
+                <span><Link to="login" className='navlink'>LOGIN</Link></span>
+            </div>}
+        </div>
     )
 }

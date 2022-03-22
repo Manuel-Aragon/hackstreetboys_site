@@ -1,30 +1,24 @@
-import './App.css';
-
 import React, { Component } from 'react'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import { Home } from './components/Home'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { auth } from './firebase-config'
+import { Bio } from './components/Bio'
+import { Events } from './components/Events'
+import { Merch } from './components/Merch'
 
 export class App extends Component {
-
-    state = {
-        user: null,
-    }
-
-    componentDidMount() {
-
-    }
-
     render() {
-        return (
+      return (
         <BrowserRouter>
-            <Routes>
-                {/* home */}
-                <Route exact path='/' component={() => <Home user={this.state.user} />} />
-            </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Bio" element={<Bio />} />
+            <Route path="/Events" element={<Events />} />
+            <Route path="/Merch" element={<Merch />} />
+          </Routes>
         </BrowserRouter>
-        )
+      )
     }
+
 }
 
 export default App
