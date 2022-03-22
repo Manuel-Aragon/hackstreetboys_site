@@ -1,0 +1,16 @@
+.navbar{
+  width: 100%;
+  height: auto;
+  display:flex;
+}
+
+.navbar .navbox{  
+  width: 100%;
+  height: auto;
+}
+
+.navbar .rightside{
+  width: 100%;
+  height: auto;
+  
+}
