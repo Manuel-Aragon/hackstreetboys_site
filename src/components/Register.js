@@ -9,7 +9,6 @@ export const Register = (props) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
 
     // signup
     const signup = (e) => {
@@ -36,7 +35,7 @@ export const Register = (props) => {
                 <br />
                 <button type="submit" className='btn btn-success btn-md mybtn'>SUBMIT</button>
             </form>
-            {error && <span className='error-msg'>{error}</span>}
+            {/* {error && <span className='error-msg'>{error}</span>} */}
             <br />
             <span>Already have an account? Login
                 <Link to="login"> Here</Link>
