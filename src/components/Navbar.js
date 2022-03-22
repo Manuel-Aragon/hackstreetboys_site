@@ -27,7 +27,7 @@ export const Navbar = () => {
 
             </div>
             <div className='rightside'>
-                    <span><Link to="signup" className='navlink'>SIGN UP</Link></span>
+                    <span><Link to="/Register" className='navlink'>Register</Link></span>
                     <span><Link to="login" className='navlink'>LOGIN</Link></span>
             </div>
         </nav>

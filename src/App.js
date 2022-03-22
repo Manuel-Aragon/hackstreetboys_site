@@ -5,6 +5,7 @@ import { Bio } from './components/Bio'
 import { Events } from './components/Events'
 import { Merch } from './components/Merch'
 import { Announcements } from './components/Announcements'
+import { Register } from './components/Register'
 
 export class App extends Component {
     render() {
@@ -16,6 +17,7 @@ export class App extends Component {
             <Route path='/Events' element={<Events />} />
             <Route path='/Announcements' element={<Announcements />} />
             <Route path='/Merch' element={<Merch />} />
+            <Route path='/Register' element={<Register />} />
           </Routes>
         </BrowserRouter>
       )
