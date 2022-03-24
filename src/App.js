@@ -6,6 +6,7 @@ import { Events } from './components/Events'
 import { Merch } from './components/Merch'
 import { Announcements } from './components/Announcements'
 import { Register } from './components/Register'
+import { Login } from './components/Login'
 
 export class App extends Component {
     render() {
@@ -18,6 +19,7 @@ export class App extends Component {
             <Route path='/Announcements' element={<Announcements />} />
             <Route path='/Merch' element={<Merch />} />
             <Route path='/Register' element={<Register />} />
+            <Route path='/Login' element={<Login />} />
           </Routes>
         </BrowserRouter>
       )

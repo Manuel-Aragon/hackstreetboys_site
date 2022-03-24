@@ -2,6 +2,8 @@ import React from 'react'
 
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
+import Merch1 from '../img/Merch1.png'
+import './Merch.css'
 
 export const Merch = ( ) => {
 
@@ -19,6 +21,7 @@ export const Merch = ( ) => {
                 <div class="card-header py-3">
                     <h4 class="my-0 fw-normal">Shirt 1</h4>
                 </div>
+
                 <div class="card-body">
                     <button type="button" class="w-100 btn btn-lg btn-outline-primary">add to cart</button>
                 </div>

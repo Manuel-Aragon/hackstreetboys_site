@@ -5,7 +5,7 @@ import './Navbar.css'
 export const Navbar = () => {
 
     return (
-        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
             <div className='navbox'>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -26,9 +26,9 @@ export const Navbar = () => {
                 </ul>
 
             </div>
-            <div className='rightside'>
-                    <span><Link to="/Register" className='navlink'>Register</Link></span>
-                    <span><Link to="login" className='navlink'>LOGIN</Link></span>
+            <div className='rightside -'>
+                    <span><Link to="/Register" className='btn btn-secondary btn-sm'>Register</Link></span>
+                    <span><Link to="/Login" className='btn btn-primary btn-sm'>LOGIN</Link></span>
             </div>
         </nav>
     )
