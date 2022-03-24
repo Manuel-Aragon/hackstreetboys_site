@@ -1,15 +1,21 @@
 import React from 'react'
 
 import { Navbar } from './Navbar'
+import { Footer } from './Footer'
 
 export const Merch = ( ) => {
 
     return (
         <div>
-            <Navbar/>
+            <div>
+                <Navbar/>
+                <br></br>
+            </div>
             <div class="row row-cols-1 row-cols-md-3 mb-3 text-center bg-dark">
             <div class="col">
                 <div class="card mb-4 rounded-3 shadow-sm">
+
+
                 <div class="card-header py-3">
                     <h4 class="my-0 fw-normal">Shirt 1</h4>
                 </div>
@@ -48,6 +54,9 @@ export const Merch = ( ) => {
                 </div>
                 </div>
             </div>
+            </div>
+            <div>
+                <Footer/>
             </div>
         </div>
     )

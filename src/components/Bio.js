@@ -1,15 +1,16 @@
 import React from 'react'
 import './Home.css'
 import { Navbar } from './Navbar'
+import {Footer} from './Footer'
 
 export const Bio = () => {
 
     return (
         <div>
-            <Navbar/>
             <div>
-
+                <Navbar/>
             </div>
+
             <div>
                 <h1 class="visually-hidden">Example</h1>
 
@@ -28,7 +29,11 @@ export const Bio = () => {
                     <p class="lead mb-4 text-light">TLDR</p>
                     </div>
                 </div>
-                </div>
+            </div>
+
+            <div>
+                <Footer/>
+            </div>
         </div>    
     )
 }

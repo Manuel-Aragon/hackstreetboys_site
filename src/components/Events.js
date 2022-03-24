@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar } from './Navbar'
+import { Footer } from './Footer'
 
 export const Events = ( ) => {
 
@@ -85,6 +86,10 @@ export const Events = ( ) => {
         </div>
         </div>
                 </div>
+            </div>
+
+            <div>
+                <Footer/>
             </div>
         </div>
     )
