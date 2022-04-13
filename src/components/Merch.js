@@ -23,7 +23,7 @@ export const Merch = ( ) => {
                 </div>
 
                 <div class="card-body">
-                    <img class="card-img-left img-fluid" src="" />
+                    <img class="card-img-left img-fluid" src="" alt ="nice"/>
                     <span><Link to="/Login" className="w-100 btn btn-lg btn-outline-primary">add to cart</Link></span>
                 </div>
                 </div>

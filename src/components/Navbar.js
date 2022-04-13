@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
 import {auth} from '../firebase-config'
 import {useNavigate} from 'react-router-dom'
@@ -38,15 +38,17 @@ export const Navbar = () => {
                 </div>
                 {!GetCurrentUser()&&<>
                     <div className='rightside'>
-                    <div><Link className='navlink' to="signup">SIGN UP</Link></div>
-                    <div><Link className='navlink' to="login">LOGIN</Link></div>
+                    <span><Link to='/Register' className='nav-link'>Register</Link></span>
+                    <span><Link to='/Login' className='nav-link'>Login</Link></span>
                     </div>
                 </>} 
 
                 {GetCurrentUser()&&<>
+                
                     <div className='rightside'>
+                    <span><Link to='/Cart' className='nav-link'>Cart</Link></span>
                     <div className='btn btn-danger btn-md'
-                    onClick={handleLogout}>LOGOUT</div>                
+                        onClick={handleLogout}>LOGOUT</div>                
                     </div>
                 </>}       
             </nav>
