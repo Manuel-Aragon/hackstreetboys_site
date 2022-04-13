@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
 import { Navbar } from './Navbar';
-import './form.css'
+import './news.css'
 
 export const Register = (props) => {
 
