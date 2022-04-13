@@ -1,6 +1,8 @@
 import React from 'react'
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
+import './events.css'
+
 
 export const Events = ( ) => {
 
@@ -9,9 +11,6 @@ export const Events = ( ) => {
             <Navbar/>
             <div>
                 <hr class="hr-lg mt-0 mb-2 w-10 mx-auto hr-p"></hr>
-                    <h2 class="text-slab text-center text-uppercase mt-0 mb-5">
-                    Events <span class="font-weight-bold"> t </span>
-                    </h2>
                 <div class="timeline timeline-left mx-lg-10">
                 <div class="timeline-breaker">Apr 22</div>
   
