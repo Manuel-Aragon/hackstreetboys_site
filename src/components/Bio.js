@@ -23,7 +23,7 @@ export const Bio = () => {
                 <div class="b-example-divider  "></div>
 
                 <div class="px-4 py-5  text-center bg-dark">
-                    <h1 class="display-5 fw-bold text-light"></h1>
+                    <h1 class="display-5 fw-bold text-light"> Member description</h1>
                     <div class="col-lg-6 mx-auto">
                     <p class="lead mb-4 text-light">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac enim feugiat, tempor urna id, auctor enim. Pellentesque ut erat a lectus iaculis finibus. Cras gravida vitae orci eu tristique. Aliquam accumsan lacus vitae rhoncus mollis. Vestibulum vel mattis enim. Vestibulum tincidunt odio non neque consequat dictum. Cras at interdum odio. Morbi porta dapibus suscipit. Donec laoreet et diam id interdum. Proin rhoncus finibus sem, id sodales dui maximus ut. Nulla massa ex, mollis eget nulla vitae, egestas facilisis purus. Quisque quam tortor, mattis ut scelerisque ac, imperdiet sed nulla. Integer euismod magna nec arcu ullamcorper aliquet.
@@ -41,7 +41,7 @@ Etiam ut dictum odio. Fusce ac rutrum dolor, id molestie orci. Fusce hendrerit e
                 <div class="b-example-divider  "></div>
 
                 <div class="px-4 py-5  text-center bg-dark">
-                    <h1 class="display-5 fw-bold text-light"></h1>
+                    <h1 class="display-5 fw-bold text-light">Member Description</h1>
                     <div class="col-lg-6 mx-auto">
                     <p class="lead mb-4 text-light">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac enim feugiat, tempor urna id, auctor enim. Pellentesque ut erat a lectus iaculis finibus. Cras gravida vitae orci eu tristique. Aliquam accumsan lacus vitae rhoncus mollis. Vestibulum vel mattis enim. Vestibulum tincidunt odio non neque consequat dictum. Cras at interdum odio. Morbi porta dapibus suscipit. Donec laoreet et diam id interdum. Proin rhoncus finibus sem, id sodales dui maximus ut. Nulla massa ex, mollis eget nulla vitae, egestas facilisis purus. Quisque quam tortor, mattis ut scelerisque ac, imperdiet sed nulla. Integer euismod magna nec arcu ullamcorper aliquet.
