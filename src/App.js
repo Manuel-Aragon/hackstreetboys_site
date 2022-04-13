@@ -8,9 +8,8 @@ import { Merch } from './components/Merch'
 import { Announcements } from './components/Announcements'
 import { Register } from './components/Register'
 import { Login } from './components/Login'
-import { NotFound } from './components/NotFound'
-import { Navbar } from './components/Navbar'
 import {auth,fs} from './firebase-config'
+import { Cart } from './components/Cart'
 
 export function GetCurrentUser(){
   const [user, setUser]=useState(null);
@@ -40,6 +39,7 @@ export const App = () => {
           <Route path='/Merch' element={<Merch />} />
           <Route path='/Register' element={<Register />} />
           <Route path='/Login' element={<Login />} />
+          <Route path='/Cart' element ={<Cart />} />
       </Routes>
     </BrowserRouter>
   )
