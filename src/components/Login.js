@@ -6,17 +6,19 @@ import { Navbar } from './Navbar';
 
 export const Login = () => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [errorMsg, setErrorMsg] = useState('');
-    const [successMsg, setSuccessMsg] = useState('');
-
     let navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    const [email, setEmail]=useState('');
+    const [password, setPassword]=useState('');
+
+    const [errorMsg, setErrorMsg]=useState('');
+    const [successMsg, setSuccessMsg]=useState('');
+
+    const handleLogin=(e)=>{
         e.preventDefault();
-        auth.signInWithEmailAndPassword(email, password).then(() => {
-            setSuccessMsg('Successfully Logged in.');
+        // console.log(email, password);
+        auth.signInWithEmailAndPassword(email,password).then(()=>{
+            setSuccessMsg('Login Successfull. You will now automatically get redirected to Home page');
             setEmail('');
             setPassword('');
             setErrorMsg('');
@@ -24,38 +26,40 @@ export const Login = () => {
                 setSuccessMsg('');
                 navigate(`/`);
             },3000)
-            console.log('logged in')
-            
-        }).catch(errorMsg => setErrorMsg(errorMsg));
+        }).catch(error=>setErrorMsg(error.message));
     }
 
     return (
         <div className='container'>
-            <br />
-            <h2>Login</h2>
+            <br></br>
             <Navbar/>
             <br></br>
+            <h1>Login</h1>
             <hr></hr>
             {successMsg&&<>
                 <div className='success-msg'>{successMsg}</div>
                 <br></br>
             </>}
-            <form autoComplete="off" className='form-group' onSubmit={handleLogin}>
-                <label htmlFor="email">Email</label>
+            <form className='form-group' autoComplete="off"
+            onSubmit={handleLogin}>               
+                <label>Email</label>
                 <input type="email" className='form-control' required
-                    onChange={(e) => setEmail(e.target.value)} value={email}></input>
-                <br />
-                <label htmlFor="password">Password</label>
+                onChange={(e)=>setEmail(e.target.value)} value={email}></input>
+                <br></br>
+                <label>Password</label>
                 <input type="password" className='form-control' required
-                    onChange={(e) => setPassword(e.target.value)} value={password}></input>
-                <br />
-                <button type="submit" className='btn btn-success btn-md mybtn'>LOGIN</button>
+                onChange={(e)=>setPassword(e.target.value)} value={password}></input>
+                <br></br>
+                <div className='btn-box'>
+                    <span>Don't have an account? Register
+                    <Link to="/Register" className='link'> Here</Link></span>
+                    <button type="submit" className='btn btn-success btn-md'>LOGIN</button>
+                </div>
             </form>
-            {errorMsg && <span className='error-msg'>{errorMsg}</span>}
-            <br/>
-            <span>Don't have an account? Register
-                <Link to="/Register"> Here</Link>
-            </span>
+            {errorMsg&&<>
+                <br></br>
+                <div className='error-msg'>{errorMsg}</div>                
+            </>}
         </div>
     )
 }

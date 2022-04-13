@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
-import Merch1 from '../img/Merch1.png'
+import { Link } from 'react-router-dom'
 import './Merch.css'
 
 export const Merch = ( ) => {
@@ -23,7 +23,8 @@ export const Merch = ( ) => {
                 </div>
 
                 <div class="card-body">
-                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">add to cart</button>
+                    <img class="card-img-left img-fluid" src="" />
+                    <span><Link to="/Login" className="w-100 btn btn-lg btn-outline-primary">add to cart</Link></span>
                 </div>
                 </div>
             </div>
@@ -33,7 +34,7 @@ export const Merch = ( ) => {
                     <h4 class="my-0 fw-normal">Shirt 2</h4>
                 </div>
                 <div class="card-body">
-                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">add to cart</button>
+                <span><Link to="/Login" className="w-100 btn btn-lg btn-outline-primary">add to cart</Link></span>
                 </div>
                 </div>
             </div>
@@ -43,17 +44,7 @@ export const Merch = ( ) => {
                     <h4 class="my-0 fw-normal">Shirt 3</h4>
                 </div>
                 <div class="card-body">
-                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">add to cart</button>
-                </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">Shirt 3</h4>
-                </div>
-                <div class="card-body">
-                    <button type="button" class="w-100 btn btn-lg btn-outline-primary">add to cart</button>
+                <span><Link to="/Login" className="w-100 btn btn-lg btn-outline-primary">add to cart</Link></span>
                 </div>
                 </div>
             </div>
