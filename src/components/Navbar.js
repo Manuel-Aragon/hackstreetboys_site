@@ -47,8 +47,9 @@ export const Navbar = () => {
                 
                     <div className='rightside'>
                     <span><Link to='/Cart' className='nav-link'>Cart</Link></span>
+                    <span><Link to='/' className='nav-link'>Reservations</Link></span>
                     <div className='btn btn-danger btn-md'
-                        onClick={handleLogout}>LOGOUT</div>                
+                        onClick={handleLogout}>Logout</div>                
                     </div>
                 </>}       
             </nav>

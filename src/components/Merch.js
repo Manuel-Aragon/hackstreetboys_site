@@ -1,57 +1,71 @@
-import React from 'react'
-
+import React,{useState, useEffect} from 'react'
 import { Navbar } from './Navbar'
-import { Footer } from './Footer'
-import { Link } from 'react-router-dom'
-import './Merch.css'
+import { Products } from './Products'
+import {auth,fs} from '../firebase-config'
 
-export const Merch = ( ) => {
+export const Merch = () => {
+
+    // getting current user function
+    function GetCurrentUser(){
+        const [user, setUser]=useState(null);
+        useEffect(()=>{
+            auth.onAuthStateChanged(user=>{
+                if(user){
+                    fs.collection('users').doc(user.uid).get().then(snapshot=>{
+                        setUser(snapshot.data().FullName);
+                    })
+                }
+                else{
+                    setUser(null);
+                }
+            })
+        },[])
+        return user;
+    }
+
+    const user = GetCurrentUser();
+    // console.log(user);
+    
+    // state of products
+    const [products, setProducts]=useState([]);
+
+    // getting products function
+    const getProducts = async ()=>{
+        const products = await fs.collection('Products').get();
+        const productsArray = [];
+        for (var snap of products.docs){
+            var data = snap.data();
+            data.ID = snap.id;
+            productsArray.push({
+                ...data
+            })
+            if(productsArray.length === products.docs.length){
+                setProducts(productsArray);
+            }
+        }
+    }
+
+    useEffect(()=>{
+        getProducts();
+    },[])
 
     return (
-        <div>
-            <div>
-                <Navbar/>
-                <br></br>
-            </div>
-            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center bg-dark">
-            <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm">
-
-
-                <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">Shirt 1</h4>
+        <>
+            <Navbar/>           
+            <br></br>
+            {products.length > 0 && (
+                
+                <div className='container-fluid'>
+                    <br></br>
+                    <h1 className='text-center'>Products</h1>
+                    <div className='products-box'>
+                        <Products products={products}/>
+                    </div>
                 </div>
-
-                <div class="card-body">
-                    <img class="card-img-left img-fluid" src="" alt ="nice"/>
-                    <span><Link to="/Login" className="w-100 btn btn-lg btn-outline-primary">add to cart</Link></span>
-                </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">Shirt 2</h4>
-                </div>
-                <div class="card-body">
-                <span><Link to="/Login" className="w-100 btn btn-lg btn-outline-primary">add to cart</Link></span>
-                </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card mb-4 rounded-3 shadow-sm">
-                <div class="card-header py-3">
-                    <h4 class="my-0 fw-normal">Shirt 3</h4>
-                </div>
-                <div class="card-body">
-                <span><Link to="/Login" className="w-100 btn btn-lg btn-outline-primary">add to cart</Link></span>
-                </div>
-                </div>
-            </div>
-            </div>
-            <div>
-                <Footer/>
-            </div>
-        </div>
+            )}
+            {products.length < 1 && (
+                <div className='container-fluid'>Please wait....</div>
+            )}
+        </>
     )
 }

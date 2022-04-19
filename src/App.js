@@ -10,10 +10,13 @@ import { Register } from './components/Register'
 import { Login } from './components/Login'
 import {auth,fs} from './firebase-config'
 import { Cart } from './components/Cart'
+import {NotFound} from './components/NotFound'
+import {AddProducts} from './components/AddProduct'
 
 export function GetCurrentUser(){
   const [user, setUser]=useState(null);
   useEffect(()=>{
+    
       auth.onAuthStateChanged(user=>{
           if(user){
               fs.collection('users').doc(user.uid).get().then(snapshot=>{
@@ -40,6 +43,8 @@ export const App = () => {
           <Route path='/Register' element={<Register />} />
           <Route path='/Login' element={<Login />} />
           <Route path='/Cart' element ={<Cart />} />
+          <Route path="/add" element={<AddProducts/>}/>    
+          <Route element={NotFound}/>       
       </Routes>
     </BrowserRouter>
   )
