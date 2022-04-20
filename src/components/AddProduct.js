@@ -106,7 +106,6 @@ export const AddProducts = () => {
             {uploadError&&<>
                     <br></br>
                     <div className='error-msg'>{uploadError}</div>
-                    
                 </>}
 
         </div>

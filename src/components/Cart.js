@@ -1,52 +1,73 @@
-import React from 'react'
-import { Navbar } from './Navbar'
-import { Footer } from './Footer'
-import './cart.css'
+import React,{useState, useEffect} from 'react'
+import {Navbar} from './Navbar'
+import {auth,fs} from '../firebase-config'
+import { CartProducts } from './CartProducts';
+import { Footer } from './Footer';
 
 export const Cart = () => {
 
-    return (
-        <div>
-            <Navbar/>
-            <div class="container p-5 bg-dark d-flex">
-                <div class="container mt-5 p-5 rounded cart">
-                    <div class="row no-gutters">
-                        <div class="col-md-8">
-                            <div class="product-details mr-2">
-                                        <h6 class="mb-0">Shopping cart</h6>
-                                            <div class="d-flex flex-row align-items-center"><i class="fa fa-long-arrow-left"></i><span class="ml-2">Continue Shopping</span></div>
-                                                <h6 class="mb-0">Shopping cart</h6>
-                                                    <div class="d-flex justify-content-between"><span>You have 2 items in your cart</span>
-                      </div>
-                      <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                              <div class="ml-2"><span class="font-weight-bold d-block px-2">Shirt M</span><span class="spec px-2">White</span></div>
-                          </div>
-                          
-                          <div class="d-flex flex-row align-items-center"><span class="d-block px-5">2</span><span class="d-block ml-5 font-weight-bold">$0</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
-                          <button type="button" class="btn btn-danger">REMOVE</button>
+    // getting current user function
+    function GetCurrentUser(){
+        const [user, setUser]=useState(null);
+        useEffect(()=>{
+            auth.onAuthStateChanged(user=>{
+                if(user){
+                    fs.collection('users').doc(user.uid).get().then(snapshot=>{
+                        setUser(snapshot.data().FullName);
+                    })
+                }
+                else{
+                    setUser(null);
+                }
+            })
+        },[])
+        return user;
+    }
+
+    const user = GetCurrentUser();
+    console.log(user);
     
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                                <div class="ml-2"><span class="font-weight-bold d-block px-2">Shirt L</span><span class="spec px-2">White</span></div>
-                            </div>
-                            <div class="d-flex flex-row align-items-center"><span class="d-block px-5">2</span><span class="d-block ml-5 font-weight-bold">$0</span><i class="fa fa-trash-o ml-3 text-black-50"></i></div>
-                            <button type="button" class="btn btn-danger">REMOVE</button>
-                        </div>
+    // state of cart products
+    const [cartProducts, setCartProducts]=useState([]);
+
+    // getting cart products from firestore collection and updating the state
+    useEffect(()=>{
+        auth.onAuthStateChanged(user=>{
+            if(user){
+                fs.collection('Cart ' + user.uid).onSnapshot(snapshot=>{
+                    const newCartProduct = snapshot.docs.map((doc)=>({
+                        ID: doc.id,
+                        ...doc.data(),
+                    }));
+                    setCartProducts(newCartProduct);                    
+                })
+            }
+            else{
+                console.log('user is not signed in to retrieve cart');
+            }
+        })
+    },[])
+
+    // console.log(cartProducts);
+
+    return (
+        <>
+        <div>
+            <Navbar/>           
+            <br></br>
+            {cartProducts.length > 0 && (
+                <div className='container-fluid'>
+                    <h1 className='text-center'>Cart</h1>
+                    <div className='products-box'>
+                        <CartProducts cartProducts={cartProducts}/>
                     </div>
                 </div>
-                <div class="col-md-4">
-                  <div class="payment-info">
-                      <div class="row">
-                      </div>
-                      <div class="d-flex justify-content-between information"><span>Subtotal</span><span>$0.00</span></div>
-                      <div class="d-flex justify-content-between information"><span>Shipping</span><span>$0.00</span></div>
-                      <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>$0.00</span></div>
-                      <button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button "><span>Checkout</span></button>
-                  </div>
-                </div>
-            </div>
-        <Footer/>
+            )}
+            {cartProducts.length < 1 && (
+                <div className='container-fluid'>No products to show</div>
+            ) }
+            <Footer/>
         </div>
-
+        </>
     )
 }

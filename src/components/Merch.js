@@ -2,8 +2,23 @@ import React,{useState, useEffect} from 'react'
 import { Navbar } from './Navbar'
 import { Products } from './Products'
 import {auth,fs} from '../firebase-config'
+import {useNavigate} from 'react-router-dom'
 
-export const Merch = () => {
+export const Merch = (props) => {
+        // gettin current user uid
+        function GetUserUid(){
+            const [uid, setUid]=useState(null);
+            useEffect(()=>{
+                auth.onAuthStateChanged(user=>{
+                    if(user){
+                        setUid(user.uid);
+                    }
+                })
+            },[])
+            return uid;
+        }
+    
+        const uid = GetUserUid();
 
     // getting current user function
     function GetCurrentUser(){
@@ -24,7 +39,7 @@ export const Merch = () => {
     }
 
     const user = GetCurrentUser();
-    // console.log(user);
+    console.log(user);
     
     // state of products
     const [products, setProducts]=useState([]);
@@ -49,6 +64,25 @@ export const Merch = () => {
         getProducts();
     },[])
 
+    let Product;
+    let navigate = useNavigate();
+    const addToCart = (product)=>{
+        if(uid!==null){
+            // console.log(product);
+            Product=product;
+            Product['qty']=1;
+            Product['TotalProductPrice']=Product.qty*Product.price;
+            fs.collection('Cart ' + uid).doc(product.ID).set(Product).then(()=>{
+                console.log('successfully added to cart');
+            })
+
+        }
+        else{
+
+            navigate('/login');
+        }
+    }
+
     return (
         <>
             <Navbar/>           
@@ -59,7 +93,7 @@ export const Merch = () => {
                     <br></br>
                     <h1 className='text-center'>Products</h1>
                     <div className='products-box'>
-                        <Products products={products}/>
+                        <Products products={products} addToCart={addToCart}/>
                     </div>
                 </div>
             )}
