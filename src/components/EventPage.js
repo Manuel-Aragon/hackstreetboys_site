@@ -1,7 +1,9 @@
 import React,{useState, useEffect} from 'react'
 import { Navbar } from './Navbar'
 import { Events } from './Events'
+import { Footer } from './Footer'
 import {auth,fs} from '../firebase-config'
+import './event.css'
 
 export const EventPage = (props) => {
         // gettin current user uid
@@ -70,18 +72,20 @@ export const EventPage = (props) => {
             <Navbar/>           
             <br></br>
             {events.length > 0 && (
-                
-                <div className='container-fluid'>
-                    <br></br>
-                    <h1 className='text-center'>events</h1>
-                    <div className='events-box'>
-                        <Events events={events}/>
+                <div className='event-page'>
+                    <div className='container-fluid'>
+                        <br></br>
+                        <div className='events-box'>
+                            <Events events={events}/>
+                        </div>
                     </div>
                 </div>
+
             )}
             {events.length < 1 && (
                 <div className='container-fluid'>Please wait....</div>
             )}
+            <Footer/>
         </>
     )
 }
