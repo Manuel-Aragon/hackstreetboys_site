@@ -18,7 +18,7 @@ export const EventPage = (props) => {
         }
     
         const uid = GetUserUid();
-
+        console.log(uid);
     // getting current user function
     function GetCurrentUser(){
         const [user, setUser]=useState(null);

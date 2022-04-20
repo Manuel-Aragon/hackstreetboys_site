@@ -1,4 +1,5 @@
 import React from 'react'
+import './Merch.css'
 
 export const IndividualProduct = ({individualProduct, addToCart}) => {
     // console.log(individualProduct);

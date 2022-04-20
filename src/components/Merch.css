@@ -1,12 +1,11 @@
 body{margin-top:20px;
-    background: #212529;
-    }
-  
-  .container {
-    max-width: 960px;
+  background: #212529;
   }
-  
-  .pricing-header {
-    max-width: 700px;
-  }
-  
+
+.product {
+  max-width: 960px;
+}
+
+.pricing-header {
+  max-width: 700px;
+}
