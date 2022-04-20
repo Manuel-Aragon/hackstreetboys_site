@@ -4,6 +4,7 @@ import { Footer } from './Footer'
 import { Products } from './Products'
 import {auth,fs} from '../firebase-config'
 import {useNavigate} from 'react-router-dom'
+import './Merch.css'
 
 
 export const Merch = (props) => {
@@ -91,7 +92,7 @@ export const Merch = (props) => {
             <br></br>         
             <br></br>
             <br></br>
-            <div class="container p bg-dark">
+            <div class="container-fluid py-3 px-4 bg-dark">
 
                     {products.length > 0 && (
                     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center bg-dark">
