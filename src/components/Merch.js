@@ -1,8 +1,10 @@
 import React,{useState, useEffect} from 'react'
 import { Navbar } from './Navbar'
+import { Footer } from './Footer'
 import { Products } from './Products'
 import {auth,fs} from '../firebase-config'
 import {useNavigate} from 'react-router-dom'
+import './Merch.css'
 
 export const Merch = (props) => {
         // gettin current user uid
@@ -88,18 +90,29 @@ export const Merch = (props) => {
             <Navbar/>           
             <br></br>
             {products.length > 0 && (
-                
-                <div className='container-fluid'>
-                    <br></br>
-                    <h1 className='text-center'>Products</h1>
-                    <div className='products-box'>
+                <div class="container py-3 bg-dark">
+                <header>
+                  <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom bg-dark">
+                  </div>
+                  <div class="pricing-header p-3 pb-md-4 mx-auto text-center bg-dark">
+                  </div>
+                </header>
+              
+                <main>
+                  <div class="row row-cols-1 row-cols-md-3 mb-3 text-center bg-dark">
+                    <div class="col">
                         <Products products={products} addToCart={addToCart}/>
                     </div>
-                </div>
+                  </div>
+                </main>
+              </div>
+
             )}
             {products.length < 1 && (
                 <div className='container-fluid'>Please wait....</div>
             )}
+            <br></br>
+            <Footer/>
         </>
     )
 }

@@ -7,8 +7,10 @@ export const Products = ({products,addToCart}) => {
     // console.log(products);
     
     return products.map((individualProduct)=>(
-        <IndividualProduct key = {individualProduct.ID} individualProduct={individualProduct}
-           addToCart={addToCart}
-        />
+        <div class="item">
+            <IndividualProduct key = {individualProduct.ID} individualProduct={individualProduct}
+           addToCart={addToCart}/>
+        </div>
+
     ))
 }
