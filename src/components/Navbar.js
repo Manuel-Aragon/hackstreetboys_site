@@ -16,7 +16,7 @@ export const Navbar = () => {
 
     return (
             <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
-                <div className='navbox'>
+                <div className='container'>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <span><Link to="/" className='nav-link'>Home</Link></span>
@@ -34,24 +34,34 @@ export const Navbar = () => {
                             <span><Link to='/Bio' className='nav-link'>Bio</Link></span>
                         </li>
                     </ul>
-    
-                </div>
-                {!GetCurrentUser()&&<>
-                    <div className='rightside'>
-                    <span><Link to='/Register' className='nav-link'>Register</Link></span>
-                    <span><Link to='/Login' className='nav-link'>Login</Link></span>
-                    </div>
-                </>} 
+                    <div class="collapse navbar-collapse" id="navmenu">
+                        {!GetCurrentUser()&&<>
+                            <ul class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <span><Link to='/Register' className='nav-link'>Register</Link></span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <span><Link to='/Login' className='nav-link'>Login</Link></span>
+                                    </li>
+                                </ul>
+                        </>} 
 
-                {GetCurrentUser()&&<>
-                
-                    <div className='rightside'>
-                    <span><Link to='/Cart' className='nav-link'>Cart</Link></span>
-                    <span><Link to='/' className='nav-link'>Reservations</Link></span>
-                    <div className='btn btn-danger btn-md'
-                        onClick={handleLogout}>Logout</div>                
+                        {GetCurrentUser()&&<>
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <span><Link to='/Cart' className='nav-link'>Cart</Link></span>
+                                </li>
+                                <li class="nav-item">
+                                    <span><Link to='/' className='nav-link'>Reservations</Link></span>
+                                </li>
+                                <li>
+                                <div className='btn btn-danger btn-md'
+                                    onClick={handleLogout}>Logout</div>          
+                                </li>
+                            </ul>
+                        </>}
                     </div>
-                </>}       
+                </div>
             </nav>
 
     )
