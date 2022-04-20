@@ -3,7 +3,7 @@ import React,{useState, useEffect} from 'react'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import { Home } from './components/Home'
 import { Bio } from './components/Bio'
-import { Events } from './components/Events'
+import { EventPage } from './components/EventPage'
 import { Merch } from './components/Merch'
 import { Announcements } from './components/Announcements'
 import { Register } from './components/Register'
@@ -12,6 +12,7 @@ import {auth,fs} from './firebase-config'
 import { Cart } from './components/Cart'
 import {NotFound} from './components/NotFound'
 import {AddProducts} from './components/AddProduct'
+import {AddEvents} from './components/AddEvent'
 
 export function GetCurrentUser(){
   const [user, setUser]=useState(null);
@@ -37,13 +38,14 @@ export const App = () => {
       <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/Bio' element={<Bio />} />
-          <Route path='/Events' element={<Events />} />
+          <Route path='/Events' element={<EventPage/>} />
           <Route path='/Announcements' element={<Announcements />} />
           <Route path='/Merch' element={<Merch />} />
           <Route path='/Register' element={<Register />} />
           <Route path='/Login' element={<Login />} />
           <Route path='/Cart' element ={<Cart />} />
           <Route path="/add" element={<AddProducts/>}/>    
+          <Route path="/addevent" element={<AddEvents/>}/>
           <Route element={NotFound}/>       
       </Routes>
     </BrowserRouter>
