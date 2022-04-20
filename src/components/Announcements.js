@@ -18,7 +18,7 @@ export const Announcements = () => {
                                     <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt ="" />
                                         <div class="card-body">
                                             <h4 class="card-title h5 h4-sm"><i class="fas fa-caret-right" aria-hidden="true"></i><span>JAN 01 2022</span><i class="fas fa-caret-right" aria-hidden="true"></i><span>12:00 AM - 11:59 PM</span> </h4>
-                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed</p>
+                                            <p class="card-text">Test 123</p>
                                             <a href="url">Read more</a>
                                         </div>
                                     </div>
