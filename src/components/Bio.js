@@ -15,41 +15,58 @@ export const Bio = () => {
                 <h1 class="visually-hidden">Example</h1>
 
                 <div class="px-4 py-5  text-center bg-dark">
-                    <h1 class="display-5 fw-bold text-light">Member Name</h1>
-                    <div class="col-lg-6 mx-auto">
-                    </div>
-                </div>
-
-                <div class="b-example-divider  "></div>
-
-                <div class="px-4 py-5  text-center bg-dark">
-                    <h1 class="display-5 fw-bold text-light"> Member description</h1>
-                    <div class="col-lg-6 mx-auto">
-                    <p class="lead mb-4 text-light">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac enim feugiat, tempor urna id, auctor enim. Pellentesque ut erat a lectus iaculis finibus. Cras gravida vitae orci eu tristique. Aliquam accumsan lacus vitae rhoncus mollis. Vestibulum vel mattis enim. Vestibulum tincidunt odio non neque consequat dictum. Cras at interdum odio. Morbi porta dapibus suscipit. Donec laoreet et diam id interdum. Proin rhoncus finibus sem, id sodales dui maximus ut. Nulla massa ex, mollis eget nulla vitae, egestas facilisis purus. Quisque quam tortor, mattis ut scelerisque ac, imperdiet sed nulla. Integer euismod magna nec arcu ullamcorper aliquet.
-
-Etiam ut dictum odio. Fusce ac rutrum dolor, id molestie orci. Fusce hendrerit est sit amet augue imperdiet dignissim. Donec efficitur libero sed tortor vulputate, vel malesuada ex lacinia. Mauris nec nisi quis quam ultricies gravida. Etiam facilisis et quam sed convallis. Nam ut felis iaculis, fermentum sapien id, porttitor enim. Quisque rutrum gravida vulputate. Morbi nec maximus velit, vel sagittis ligula. Suspendisse condimentum nunc libero, non ultrices nisl tristique nec. Cras dictum egestas turpis, non congue augue ultricies a. Duis hendrerit sagittis nisl sit amet mollis. Aenean eget gravida tellus, non interdum lectus. Curabitur ut tincidunt arcu. Proin scelerisque tortor tellus, laoreet sagittis est laoreet at. Suspendisse luctus porta convallis.
-                    </p>
-                    </div>
-                </div>
-                <div class="px-4 py-5  text-center bg-dark">
-                    <h1 class="display-5 fw-bold text-light">Member Name</h1>
-                    <div class="col-lg-6 mx-auto">
-                    </div>
-                </div>
-
-                <div class="b-example-divider  "></div>
-
-                <div class="px-4 py-5  text-center bg-dark">
                     <h1 class="display-5 fw-bold text-light">Member Description</h1>
                     <div class="col-lg-6 mx-auto">
                     <p class="lead mb-4 text-light">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac enim feugiat, tempor urna id, auctor enim. Pellentesque ut erat a lectus iaculis finibus. Cras gravida vitae orci eu tristique. Aliquam accumsan lacus vitae rhoncus mollis. Vestibulum vel mattis enim. Vestibulum tincidunt odio non neque consequat dictum. Cras at interdum odio. Morbi porta dapibus suscipit. Donec laoreet et diam id interdum. Proin rhoncus finibus sem, id sodales dui maximus ut. Nulla massa ex, mollis eget nulla vitae, egestas facilisis purus. Quisque quam tortor, mattis ut scelerisque ac, imperdiet sed nulla. Integer euismod magna nec arcu ullamcorper aliquet.
-                    
-                    Etiam ut dictum odio. Fusce ac rutrum dolor, id molestie orci. Fusce hendrerit est sit amet augue imperdiet dignissim. Donec efficitur libero sed tortor vulputate, vel malesuada ex lacinia. Mauris nec nisi quis quam ultricies gravida. Etiam facilisis et quam sed convallis. Nam ut felis iaculis, fermentum sapien id, porttitor enim. Quisque rutrum gravida vulputate. Morbi nec maximus velit, vel sagittis ligula. Suspendisse condimentum nunc libero, non ultrices nisl tristique nec. Cras dictum egestas turpis, non congue augue ultricies a. Duis hendrerit sagittis nisl sit amet mollis. Aenean eget gravida tellus, non interdum lectus. Curabitur ut tincidunt arcu. Proin scelerisque tortor tellus, laoreet sagittis est laoreet at. Suspendisse luctus porta convallis.
+                    As the world is awed by the rapid-success of the Hackstreet Boys, it would be crazy to not look deeper into the roots of the band. The band member themselves. As the bread and butter to the whole band, the band cannot be whole without each of the members and their efforts to the music you all love today. With Sana Alhamad, Ahmed Alrimawi, Manuel Aragon, and Cade Johnson shocking the world together, it is important to know them individually.
                     </p>
                     </div>
                 </div>
+
+                <div class="b-example-divider  "></div>
+
+                <div class="px-4 py-5  text-center bg-dark">
+                    <h1 class="display-5 fw-bold text-light"> Sana Alhamad</h1>
+                    <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4 text-light">
+                    As the Co-Lead Singer of the band, Sana Alhamad has defied all odds pushing through the cracks of society and becoming the rockstar she is today. With her being the only female artist in The Hackstreet Boys, she has faced a lot of backlash in the community being one of the biggest celebrities in the world in a boy-band. With all the talk, she used it as fuel to elevate her status and skill set to be the person she is today!
+                    </p>
+                    </div>
+                </div>
+
+                <div class="b-example-divider  "></div>
+
+                <div class="px-4 py-5  text-center bg-dark">
+                    <h1 class="display-5 fw-bold text-light"> Ahmed Alrimawi</h1>
+                    <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4 text-light">
+                    As the Guitarist of the group, Ahmed Alrimawi is definitely the ladies man of the group. But within all of the good looks and rockstar persona, Ahmed Alrimawi has the skillset to shred on the guitar as one of the backbones of the instrumental aspect of the group. The chaotic side of his personality is beautified and translated within the flow of the music, which is why he is loved by millions around the world.
+                    </p>
+                    </div>
+                </div>
+
+                <div class="b-example-divider  "></div>
+
+                <div class="px-4 py-5  text-center bg-dark">
+                    <h1 class="display-5 fw-bold text-light">Manuel Aragon</h1>
+                    <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4 text-light">
+                    As the other Co-Lead singer of the band, Manuel Aragons melodic voice has changed the lives of many around the globe. With his voice being recognized internationally, it is hard to believe that he once used to perform in a crowd of only ten people! Now being the face of the most famous band in the world, his humbleness and work-ethic is unmatched, separating him from the rest of the competition.
+                    </p>
+                    </div>
+                </div>
+
+                <div class="b-example-divider  "></div>
+
+                <div class="px-4 py-5  text-center bg-dark">
+                    <h1 class="display-5 fw-bold text-light"> Cade Johnson</h1>
+                    <div class="col-lg-6 mx-auto">
+                    <p class="lead mb-4 text-light">
+                    Every member needs the bad-ass drummer, and Cade Johnson is definitely that. With the love of drumming flowing through his blood, he has been nicknamed “The Drummer of Life'' since he has been a kid. Not only does the beat of his drums shake the heart of his fans, but he is the one that brought The Hackstreet Boys together. So although he is in the back on the drums, he is the foundation of the best band in the world known today.
+                    </p>
+                    </div>
+                </div>
+
             </div>
 
             <div>
