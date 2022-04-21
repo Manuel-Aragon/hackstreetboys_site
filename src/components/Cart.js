@@ -5,6 +5,11 @@ import {Navbar} from './Navbar'
 import {auth,fs} from '../firebase-config'
 import { CartProducts } from './CartProducts';
 import './cart.css'
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure();
 
 export const Cart = () => {
 
@@ -52,6 +57,18 @@ export const Cart = () => {
 
     // console.log(cartProducts);
 
+    // getting the TotalProductPrice from cartProducts in a seperate array
+    const price = cartProducts.map((cartProduct)=>{
+        return cartProduct.TotalProductPrice;
+    })
+
+    // reducing the price in a single value
+    const reducerOfPrice = (accumulator,currentValue)=>accumulator+currentValue;
+
+    const subtotalPrice = price.reduce(reducerOfPrice,0);
+    const shippingPrice = 1.00;
+    const totalPrice = subtotalPrice*1.08 + shippingPrice;
+
     // global variable
     let Product;
     
@@ -93,6 +110,33 @@ export const Cart = () => {
             })
         }
     }
+
+    //checkout
+     const navigate = useNavigate();
+     const handleCheckout = async()=>{
+        const status = 'success';
+        if(status==='success'){
+            navigate('/');
+            toast.success('Your order has been placed successfully', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+              });
+              
+              const uid = auth.currentUser.uid;
+              const carts = await fs.collection('Cart ' + uid).get();
+              for(var snap of carts.docs){
+                  fs.collection('Cart ' + uid).doc(snap.id).delete();
+              }
+        }
+        else{
+            alert('Something went wrong in checkout');
+        }
+     }
    
     return (
         <>
@@ -104,7 +148,7 @@ export const Cart = () => {
                         <div class="col-md-8">
                             <div class="product-details mr-2">
                                 <h6 class="mb-0">Shopping cart</h6>
-                                <div class="d-flex justify-content-between"><span>You have 2 items in your cart</span>
+                                <div class="d-flex justify-content-between"><span>You have {cartProducts.length} items in your cart</span>
                                 </div>
                                 {cartProducts.length > 0 && (
                                         <div className='products-box'>
@@ -143,15 +187,17 @@ export const Cart = () => {
                                         <input type="text" class="form-control credit-inputs" placeholder="111"></input>
                                     </div>
                                 </div>
-                                <div class="d-flex justify-content-between information"><span>Subtotal</span><span>$0.00</span></div>
-                                <div class="d-flex justify-content-between information"><span>Shipping</span><span>$0.00</span></div>
-                                <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>$0.00</span></div>
-                                <button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button "><span>Checkout</span></button>
+                                <div class="d-flex justify-content-between information"><span>Subtotal</span><span>${subtotalPrice}</span></div>
+                                <div class="d-flex justify-content-between information"><span>Shipping</span><span>${shippingPrice}</span></div>
+                                <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>${totalPrice}</span></div>
+                                <button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button " onClick={handleCheckout}><span>Checkout</span></button>
                                 </div>
-                            </div>
+                                <div className='summary-box'>
+                    </div>     
                         </div>
                     </div>
                 </div>
+            </div>
         </>
     )
 }

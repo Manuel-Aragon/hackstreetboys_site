@@ -13,6 +13,7 @@ import { Cart } from './components/Cart'
 import {NotFound} from './components/NotFound'
 import {AddProducts} from './components/AddProduct'
 import {AddEvents} from './components/AddEvent'
+import { AddAnnouncements } from './components/AddAnnouncement'
 
 export function GetCurrentUser(){
   const [user, setUser]=useState(null);
@@ -46,6 +47,7 @@ export const App = () => {
           <Route path='/Cart' element ={<Cart />} />
           <Route path="/add" element={<AddProducts/>}/>    
           <Route path="/addevent" element={<AddEvents/>}/>
+          <Route path="/addnews" element={<AddAnnouncements/>}/>
           <Route element={NotFound}/>       
       </Routes>
     </BrowserRouter>
