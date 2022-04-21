@@ -5,7 +5,7 @@ import { Home } from './components/Home'
 import { Bio } from './components/Bio'
 import { EventPage } from './components/EventPage'
 import { Merch } from './components/Merch'
-import { Announcements } from './components/Announcements'
+import { AnnouncementsPage } from './components/AnnouncementsPage'
 import { Register } from './components/Register'
 import { Login } from './components/Login'
 import {auth,fs} from './firebase-config'
@@ -40,7 +40,7 @@ export const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/Bio' element={<Bio />} />
           <Route path='/Events' element={<EventPage/>} />
-          <Route path='/Announcements' element={<Announcements />} />
+          <Route path='/Announcements' element={<AnnouncementsPage />} />
           <Route path='/Merch' element={<Merch />} />
           <Route path='/Register' element={<Register />} />
           <Route path='/Login' element={<Login />} />
