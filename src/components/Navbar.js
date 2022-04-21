@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 import {auth} from '../firebase-config'
 import {useNavigate} from 'react-router-dom'
 import { GetCurrentUser } from '../App'
-import { Button } from 'bootstrap'
 
 export const Navbar = () => {
 
