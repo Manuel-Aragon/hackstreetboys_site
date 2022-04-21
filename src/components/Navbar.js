@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {auth} from '../firebase-config'
 import {useNavigate} from 'react-router-dom'
 import { GetCurrentUser } from '../App'
+import { Button } from 'bootstrap'
 
 export const Navbar = () => {
 
@@ -12,6 +13,14 @@ export const Navbar = () => {
         auth.signOut().then(()=>{
             navigate('/');
         })
+    }
+    
+    const handleLogin=()=>{
+        navigate('/login')
+    }
+
+    const handleRegister=()=>{
+        navigate('/register')
     }
 
     return (
@@ -37,12 +46,10 @@ export const Navbar = () => {
                     <div class="collapse navbar-collapse" id="navmenu">
                         {!GetCurrentUser()&&<>
                             <ul class="navbar-nav ms-auto">
-                                    <li class="nav-item">
-                                        <span><Link to='/Register' className='nav-link'>Register</Link></span>
-                                    </li>
-                                    <li class="nav-item">
-                                        <span><Link to='/Login' className='nav-link'>Login</Link></span>
-                                    </li>
+                            <li  className='btn btn-secondary btn-md'
+                                    onClick={handleRegister}>Register</li> 
+                                    <li  className='btn btn-primary btn-md'
+                                    onClick={handleLogin}>Login</li> 
                                 </ul>
                         </>} 
 

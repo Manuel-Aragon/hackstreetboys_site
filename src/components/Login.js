@@ -31,8 +31,10 @@ export const Login = () => {
 
     return (
         <div className='container'>
-            <br></br>
             <Navbar/>
+            <br></br>
+            <br></br>
+            <br></br>
             <br></br>
             <h1>Login</h1>
             <hr></hr>

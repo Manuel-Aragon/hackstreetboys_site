@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
 import { Navbar } from './Navbar';
-import './news.css'
 
 export const Register = (props) => {
 
@@ -18,7 +17,10 @@ export const Register = (props) => {
     return (
         <div className='container'>
             <Navbar/>
-            <br />
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <h2>Sign up</h2>
             <br />
             <form autoComplete="off" className='form-group' onSubmit={signup}>
@@ -39,7 +41,7 @@ export const Register = (props) => {
             {/* {error && <span className='error-msg'>{error}</span>} */}
             <br />
             <span>Already have an account? Login
-                <Link to="login"> Here</Link>
+                <Link to="/login"> Here</Link>
             </span>
         </div>
     )
