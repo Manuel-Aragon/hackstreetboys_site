@@ -4,7 +4,20 @@ import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 
 export const Announcements = () => {
-
+    let modalBtn = document.getElementById("modal-btn")
+let modal = document.querySelector(".modal")
+let closeBtn = document.querySelector(".close-btn")
+modalBtn.onclick = function(){
+  modal.style.display = "block"
+}
+closeBtn.onclick = function(){
+  modal.style.display = "none"
+}
+window.onclick = function(e){
+  if(e.target == modal){
+    modal.style.display = "none"
+  }
+}
     return (
         <div>
             <Navbar/>
@@ -19,7 +32,13 @@ export const Announcements = () => {
                                         <div class="card-body">
                                             <h4 class="card-title h5 h4-sm"><i class="fas fa-caret-right" aria-hidden="true"></i><span>APR 20 2022</span><i class="fas fa-caret-right" aria-hidden="true"></i><span>3:41 PM</span> </h4>
                                             <p class="card-text">The Hackstreet Boys are coming to Dallas, TX.</p>
-                                            <a href="url">Read more</a>
+                                            <button id="modal-btn"> Read More</button>
+<div class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <p>this is the text inside the modal</p>
+  </div>
+</div>
                                         </div>
                                     </div>
                                     <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt = "" />
@@ -56,6 +75,7 @@ export const Announcements = () => {
                     </div>
                 </div>
             </div>
+            
             <div>
                 <Footer/>
             </div>
