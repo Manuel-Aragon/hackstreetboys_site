@@ -1,5 +1,4 @@
 import React from 'react'
-import './event.css'
 
 export const IndividualEvent = ({individualEvent}) => {
     // console.log(individualEvent);

@@ -7,10 +7,9 @@ export const Bio = () => {
 
     return (
         <div>
-            <div>
-                <Navbar/>
-            </div>
 
+            <Navbar/>
+            <br></br>
             <div>
                 <h1 class="visually-hidden">Example</h1>
 
