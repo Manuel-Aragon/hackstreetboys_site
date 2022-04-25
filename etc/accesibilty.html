@@ -12,11 +12,11 @@
         </>} 
         <form autoComplete="off" className='form-group' onSubmit={handleAddEvents}>
             <label for="ann_title">Announcement Title</label>
-            <input type="text" i="ann_title" className='form-control' required
+            <input type="text" id="ann_title" className='form-control' required
             onChange={(e)=>setTitle(e.target.value)} value={title}></input>
             <br></br>
             <label for="ann_descr">Announcement Description</label>
-            <input type="text" id = "ann_descr" className='form-control' required
+            <input type="text" id="ann_descr" className='form-control' required
             onChange={(e)=>setDescription(e.target.value)} value={description}></input>
             <br></br>
             <label for="ann_date">Announcement Date</label>
@@ -54,7 +54,7 @@
             onChange={(e)=>setCity(e.target.value)} value={city}></input>
             <br></br>
             <label for="add_event_state">Event State</label>
-            <input type="text" id="add_event_sate" className='form-control' required
+            <input type="text" id="add_event_state" className='form-control' required
             onChange={(e)=>setState(e.target.value)} value={state}></input>
             <br></br>
             <label for="add_event_desc">Event Description</label>
@@ -91,20 +91,20 @@
             <h1>Add Products</h1>
             <hr></hr>        
             <form autoComplete="on" className='form-group' onSubmit={handleAddProducts}>
-                <label for="text">Product Title</label>
-                <input type="text" className='form-control' required
+                <label for="add_prod_title">Product Title</label>
+                <input type="text" id="add_prod_title"className='form-control' required
                 onChange={(e)=>setTitle(e.target.value)} value={title}></input>
                 <br></br>
-                <label for="text">Product Description</label>
-                <input type="text" className='form-control' required
+                <label for="add_prod_desc">Product Description</label>
+                <input type="text" id="add_prod_desc"className='form-control' required
                 onChange={(e)=>setDescription(e.target.value)} value={description}></input>
                 <br></br>
-                <label for="number">Product Price</label>
-                <input type="number" className='form-control' required
+                <label for="add_prod_price">Product Price</label>
+                <input type="number" id="add_prod_price"className='form-control' required
                 onChange={(e)=>setPrice(e.target.value)} value={price}></input>
                 <br></br>
-                <label for="file">Upload Product Image</label>
-                <input type="file" id="file" className='form-control' required
+                <label for="add_prod_up">Upload Product Image</label>
+                <input type="file" id="add_prod_up" className='form-control' required
                 onChange={handleProductImg}></input>
                 
                 <br></br>           
@@ -127,14 +127,12 @@
                         <div class="registration-right">
                             <h2>Announcements</h2>
                             <div class="event-list">
-                                <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt ="Announcement image" />
                                     <div class="card-body">
                                         <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>APR 20 2022</span><em class="fas fa-caret-right" aria-hidden="true"></em><span>3:41 PM</span> </h4>
                                         <p class="card-text">The Hackstreet Boys are coming to Dallas, TX.</p>
                                         <button id="modal-btn"> Read More</button>
 
                                     </div>
-                                </div>
                                 <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt = "Announcement image" />
                                     <div class="card-body">
                                         <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>APR 03 2022</span><em class="fas fa-caret-right" aria-hidden="true"></em><span>9:35 AM</span> </h4>
@@ -144,21 +142,21 @@
                                 </div>
                                 <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt = "Announcement image" />
                                     <div class="card-body">
-                                        <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>MAR 17 2022</span><em class="fas fa-caret-right" aria-hidden="true"></i><span>10:00 PM</span> </h4>
+                                        <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>MAR 17 2022</span><em class="fas fa-caret-right" aria-hidden="true"></em><span>10:00 PM</span> </h4>
                                         <p class="card-text">We are very excited to announce that we will be in Greenville on April 23.</p>
                                         <a href="url" target="_self">Read more</a>
                                     </div>
                                 </div>
                                 <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt = "Announcement image" />
                                     <div class="card-body">
-                                        <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>Feb 03 2022</span><em class="fas fa-caret-right" aria-hidden="true"></i><span>12:09 AM</span> </h4>
+                                        <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>Feb 03 2022</span><em class="fas fa-caret-right" aria-hidden="true"></em><span>12:09 AM</span> </h4>
                                         <p class="card-text">Meet and Greet officially scheduled.</p>
                                         <a href="url"target="_self">Read more</a>
                                     </div>
                                 </div>
                                 <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt = "Announcement image" />
                                     <div class="card-body">
-                                        <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>JAN 01 2022</span><em class="fas fa-caret-right" aria-hidden="true"></i><span>11:34 AM</span> </h4>
+                                        <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>JAN 01 2022</span><em class="fas fa-caret-right" aria-hidden="true"></em><span>11:34 AM</span> </h4>
                                         <p class="card-text">The Hackstreet Boys are officially going on tour!</p>
                                         <a href="url"target="_self">Read more</a>
                                     </div>
@@ -482,11 +480,11 @@
             <br />
             <form autoComplete="off" className='form-group' onSubmit={signup}>
                 <label htmlFor="name">Name</label>
-                <input type="text" className='form-control' required
+                <input type="text" id="name"className='form-control' required
                     onChange={(e) => setName(e.target.value)} value={name} />
                 <br />
                 <label htmlFor="email">Email</label>
-                <input type="email" className='form-control' required
+                <input type="email" id="email"className='form-control' required
                     onChange={(e) => setEmail(e.target.value)} value={email} />
                 <br />
                 <label htmlFor="pass">Password</label>
