@@ -7,6 +7,7 @@ export const AnnouncementsPage = () => {
     return (
         <div>
             <Navbar/>
+            <html>
             <div>
                 <div class="container-fluid p-2 bg-dark">
                     <div class="row">
@@ -56,6 +57,8 @@ export const AnnouncementsPage = () => {
                     </div>
                 </div>
             </div>
+            </html>
+
             
             <div>
                 <Footer/>
