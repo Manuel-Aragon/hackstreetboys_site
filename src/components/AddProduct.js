@@ -74,20 +74,20 @@ export const AddProducts = () => {
                 <div className='success-msg'>{successMsg}</div>
                 <br></br>
             </>} 
-            <form autoComplete="off" className='form-group' onSubmit={handleAddProducts}>
-                <label>Product Title</label>
+            <form autoComplete="on" className='form-group' onSubmit={handleAddProducts}>
+                <label for="text">Product Title</label>
                 <input type="text" className='form-control' required
                 onChange={(e)=>setTitle(e.target.value)} value={title}></input>
                 <br></br>
-                <label>Product Description</label>
+                <label for="text">Product Description</label>
                 <input type="text" className='form-control' required
                 onChange={(e)=>setDescription(e.target.value)} value={description}></input>
                 <br></br>
-                <label>Product Price</label>
+                <label for="number">Product Price</label>
                 <input type="number" className='form-control' required
                 onChange={(e)=>setPrice(e.target.value)} value={price}></input>
                 <br></br>
-                <label>Upload Product Image</label>
+                <label for="file">Upload Product Image</label>
                 <input type="file" id="file" className='form-control' required
                 onChange={handleProductImg}></input>
                 

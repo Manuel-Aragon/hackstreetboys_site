@@ -44,11 +44,11 @@ export const Login = () => {
             </>}
             <form className='form-group' autoComplete="off"
             onSubmit={handleLogin}>               
-                <label>Email</label>
+                <label for="email">Email</label>
                 <input type="email" className='form-control' required
                 onChange={(e)=>setEmail(e.target.value)} value={email}></input>
                 <br></br>
-                <label>Password</label>
+                <label for="password">Password</label>
                 <input type="password" className='form-control' required
                 onChange={(e)=>setPassword(e.target.value)} value={password}></input>
                 <br></br>

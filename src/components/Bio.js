@@ -11,8 +11,6 @@ export const Bio = () => {
             <Navbar/>
             <br></br>
             <div>
-                <h1 class="visually-hidden">Example</h1>
-
                 <div class="px-4 py-5  text-center bg-dark">
                     <h1 class="display-5 fw-bold text-light">Member Description</h1>
                     <div class="col-lg-6 mx-auto">

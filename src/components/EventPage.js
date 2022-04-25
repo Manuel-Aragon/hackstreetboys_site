@@ -68,9 +68,10 @@ export const EventPage = (props) => {
 
 
     return (
-        <>
+        <div>
             <Navbar/>           
             <br></br>
+            <div>
             {events.length > 0 && (
                 <div className='event-page'>
                     <div className='container-fluid'>
@@ -85,7 +86,9 @@ export const EventPage = (props) => {
             {events.length < 1 && (
                 <div className='container-fluid'>Please wait....</div>
             )}
+            </div>
+
             <Footer/>
-        </>
+        </div>
     )
 }
