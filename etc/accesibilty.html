@@ -1,4 +1,4 @@
-<html>
+<html lang ="en">
     <!-- AddAnnouncement -->
     <div className='container'>
         <Navbar/>
@@ -90,7 +90,7 @@
             <br></br>
             <h1>Add Products</h1>
             <hr></hr>        
-            <form autoComplete="off" className='form-group' onSubmit={handleAddProducts}>
+            <form autoComplete="on" className='form-group' onSubmit={handleAddProducts}>
                 <label for="text">Product Title</label>
                 <input type="text" className='form-control' required
                 onChange={(e)=>setTitle(e.target.value)} value={title}></input>
@@ -117,59 +117,61 @@
 
 
         </div>
-         <!-- Announcements-->
 
-    <div class="container-fluid p-2 bg-dark">
-        <div class="row">
-            <div class="col-md-12 d-flex justify-content-center right-bck p-4">
-                <div class="registration-right">
-                    <h2>Announcements</h2>
-                    <div class="event-list">
-                        <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt ="" />
-                            <div class="card-body">
-                                <h4 class="card-title h5 h4-sm"><i class="fas fa-caret-right" aria-hidden="true"></i><span>APR 20 2022</span><i class="fas fa-caret-right" aria-hidden="true"></i><span>3:41 PM</span> </h4>
-                                <p class="card-text">The Hackstreet Boys are coming to Dallas, TX.</p>
-                                <button id="modal-btn"> Read More</button>
+         <!-- Announcements Page-->
 
-                            </div>
-                        </div>
-                        <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt = "" />
-                            <div class="card-body">
-                                <h4 class="card-title h5 h4-sm"><i class="fas fa-caret-right" aria-hidden="true"></i><span>APR 03 2022</span><i class="fas fa-caret-right" aria-hidden="true"></i><span>9:35 AM</span> </h4>
-                                <p class="card-text">Ahmed Alrimawi's wife gave birth to their 7th child this morning at 8:13 AM.</p>
-                                <a href="url">Read more</a>
-                            </div>
-                        </div>
-                        <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt = "" />
-                            <div class="card-body">
-                                <h4 class="card-title h5 h4-sm"><i class="fas fa-caret-right" aria-hidden="true"></i><span>MAR 17 2022</span><i class="fas fa-caret-right" aria-hidden="true"></i><span>10:00 PM</span> </h4>
-                                <p class="card-text">We are very excited to announce that we will be in Greenville on April 23.</p>
-                                <a href="url">Read more</a>
-                            </div>
-                        </div>
-                        <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt = "" />
-                            <div class="card-body">
-                                <h4 class="card-title h5 h4-sm"><i class="fas fa-caret-right" aria-hidden="true"></i><span>Feb 03 2022</span><i class="fas fa-caret-right" aria-hidden="true"></i><span>12:09 AM</span> </h4>
-                                <p class="card-text">Meet and Greet officially scheduled.</p>
-                                <a href="url">Read more</a>
-                            </div>
-                        </div>
-                        <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt = "" />
-                            <div class="card-body">
-                                <h4 class="card-title h5 h4-sm"><i class="fas fa-caret-right" aria-hidden="true"></i><span>JAN 01 2022</span><i class="fas fa-caret-right" aria-hidden="true"></i><span>11:34 AM</span> </h4>
-                                <p class="card-text">The Hackstreet Boys are officially going on tour!</p>
-                                <a href="url">Read more</a>
+         <div>
+            <div class="container-fluid p-2 bg-dark">
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center right-bck p-4">
+                        <div class="registration-right">
+                            <h2>Announcements</h2>
+                            <div class="event-list">
+                                <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt ="Announcement image" />
+                                    <div class="card-body">
+                                        <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>APR 20 2022</span><em class="fas fa-caret-right" aria-hidden="true"></em><span>3:41 PM</span> </h4>
+                                        <p class="card-text">The Hackstreet Boys are coming to Dallas, TX.</p>
+                                        <button id="modal-btn"> Read More</button>
+
+                                    </div>
+                                </div>
+                                <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt = "Announcement image" />
+                                    <div class="card-body">
+                                        <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>APR 03 2022</span><em class="fas fa-caret-right" aria-hidden="true"></em><span>9:35 AM</span> </h4>
+                                        <p class="card-text">Ahmed Alrimawi's wife gave birth to their 7th child this morning at 8:13 AM.</p>
+                                        <a href="url" target="_self">Read more</a>
+                                    </div>
+                                </div>
+                                <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt = "Announcement image" />
+                                    <div class="card-body">
+                                        <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>MAR 17 2022</span><em class="fas fa-caret-right" aria-hidden="true"></i><span>10:00 PM</span> </h4>
+                                        <p class="card-text">We are very excited to announce that we will be in Greenville on April 23.</p>
+                                        <a href="url" target="_self">Read more</a>
+                                    </div>
+                                </div>
+                                <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt = "Announcement image" />
+                                    <div class="card-body">
+                                        <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>Feb 03 2022</span><em class="fas fa-caret-right" aria-hidden="true"></i><span>12:09 AM</span> </h4>
+                                        <p class="card-text">Meet and Greet officially scheduled.</p>
+                                        <a href="url"target="_self">Read more</a>
+                                    </div>
+                                </div>
+                                <div class="card flex-row"><img class="card-img-left img-fluid" src="" alt = "Announcement image" />
+                                    <div class="card-body">
+                                        <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>JAN 01 2022</span><em class="fas fa-caret-right" aria-hidden="true"></i><span>11:34 AM</span> </h4>
+                                        <p class="card-text">The Hackstreet Boys are officially going on tour!</p>
+                                        <a href="url"target="_self">Read more</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
          <!-- Bio-->
          <div>
-            <h1 class="visually-hidden">Example</h1>
-
             <div class="px-4 py-5  text-center bg-dark">
                 <h1 class="display-5 fw-bold text-light">Member Description</h1>
                 <div class="col-lg-6 mx-auto">
@@ -225,4 +227,87 @@
 
         </div>
 
+        <!-- Cart-->
+        <div class="container p-5 bg-dark d-flex">
+            <div class="container mt-5 p-5 rounded cart">
+                <div class="row no-gutters">
+                    <div class="col-md-8">
+                        <div class="product-details mr-2">
+                            <h6 class="mb-0">Shopping cart</h6>
+                            <div class="d-flex justify-content-between"><span>You have {cartProducts.length} items in your cart</span>
+                            </div>
+                            {cartProducts.length > 0 && (
+                                    <div className='products-box'>
+                                        <CartProducts cartProducts={cartProducts}
+                                        cartProductIncrease={cartProductIncrease}
+                                        cartProductDecrease={cartProductDecrease}
+                                        />
+                                    </div>
+                            )}
+                            {cartProducts.length < 1 && (
+                                <div className='container-fluid'>No products to show</div>
+                            ) }    
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="payment-info">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>Card details</span>
+                            </div>
+                                <div>
+                                    <label class="credit-card-label">Name on card</label>
+                                    <input type="text" class="form-control credit-inputs" placeholder="Name"></input>
+                                </div>
+                                <div>
+                                    <label class="credit-card-label">Card number</label>
+                                    <input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></input>
+
+                                </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="credit-card-label">Date</label>
+                                    <input type="text" class="form-control credit-inputs" placeholder="01/01"></input>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="credit-card-label">CVV</label>
+                                    <input type="text" class="form-control credit-inputs" placeholder="111"></input>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between information"><span>Subtotal</span><span>${subtotalPrice}</span></div>
+                            <div class="d-flex justify-content-between information"><span>Shipping</span><span>${shippingPrice}</span></div>
+                            <div class="d-flex justify-content-between information"><span>Total(Incl. taxes)</span><span>${totalPrice}</span></div>
+                            <button class="btn btn-primary btn-block d-flex justify-content-between mt-3" type="button " onClick={handleCheckout}><span>Checkout</span></button>
+                            </div>
+                            <div className='summary-box'>
+                </div>     
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- EventsPage-->
+        <div>
+            {events.length > 0 && (
+                <div className='event-page'>
+                    <div className='container-fluid'>
+                        <br></br>
+                        <div className='events-box'>
+                            <Events events={events}/>
+                        </div>
+                    </div>
+                </div>
+
+            )}
+            {events.length < 1 && (
+                <div className='container-fluid'>Please wait....</div>
+            )}
+        </div>
+
+        <!-- Footer-->
+        <div>
+            <footer class="p-5 bg-dark text-white text-center position-relative">
+                <div class="container">
+                    <p class="lead">Copyright &copy; 2022 Hackstreet Boys</p>
+                </div>
+            </footer>
+        </div>
 </html>
