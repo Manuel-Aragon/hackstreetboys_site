@@ -11,20 +11,20 @@
             <br></br>
         </>} 
         <form autoComplete="off" className='form-group' onSubmit={handleAddEvents}>
-            <label>Announcement Title</label>
-            <input type="text" className='form-control' required
+            <label for="ann_title">Announcement Title</label>
+            <input type="text" i="ann_title" className='form-control' required
             onChange={(e)=>setTitle(e.target.value)} value={title}></input>
             <br></br>
-            <label>Announcement Description</label>
-            <input type="text" className='form-control' required
+            <label for="ann_descr">Announcement Description</label>
+            <input type="text" id = "ann_descr" className='form-control' required
             onChange={(e)=>setDescription(e.target.value)} value={description}></input>
             <br></br>
-            <label>Announcement Date</label>
-            <input type="text" className='form-control' required
+            <label for="ann_date">Announcement Date</label>
+            <input type="text" id="ann_date"className='form-control' required
             onChange={(e)=>setDate(e.target.value)} value={date}></input>
             <br></br>
-            <label>Announcement Time</label>
-            <input type="text" className='form-control' required
+            <label for="ann_time">Announcement Time</label>
+            <input type="text" id="ann_time" className='form-control' required
             onChange={(e)=>setTime(e.target.value)} value={time}></input>
             <br></br>
     
@@ -49,28 +49,28 @@
             <br></br>
         </>} 
         <form autoComplete="off" className='form-group' onSubmit={handleAddEvents}>
-            <label>Event City</label>
-            <input type="text" className='form-control' required
+            <label for="add_event_city">Event City</label>
+            <input type="text" id="add_event_city"className='form-control' required
             onChange={(e)=>setCity(e.target.value)} value={city}></input>
             <br></br>
-            <label>Event State</label>
-            <input type="text" className='form-control' required
+            <label for="add_event_state">Event State</label>
+            <input type="text" id="add_event_sate" className='form-control' required
             onChange={(e)=>setState(e.target.value)} value={state}></input>
             <br></br>
-            <label>Event Description</label>
-            <input type="text" className='form-control' required
+            <label for="add_event_desc">Event Description</label>
+            <input type="text" id="add_event_desc"className='form-control' required
             onChange={(e)=>setDescription(e.target.value)} value={description}></input>
             <br></br>
-            <label>Event Price</label>
-            <input type="number" className='form-control' required
+            <label for="add_event_price">Event Price</label>
+            <input type="number" id="add_event_price" className='form-control' required
             onChange={(e)=>setPrice(e.target.value)} value={price}></input>
             <br></br>
-            <label>Event Date</label>
-            <input type="text" className='form-control' required
+            <label for="add_event_date">Event Date</label>
+            <input type="text" id = "add_event_date"className='form-control' required
             onChange={(e)=>setDate(e.target.value)} value={date}></input>
             <br></br>
-            <label>Event Location</label>
-            <input type="text" className='form-control' required
+            <label for="add_event_location">Event Location</label>
+            <input type="text" id="add_event_location" className='form-control' required
             onChange={(e)=>setLocation(e.target.value)} value={location}></input>
             <br></br>
 
@@ -255,22 +255,22 @@
                                 <span>Card details</span>
                             </div>
                                 <div>
-                                    <label class="credit-card-label">Name on card</label>
-                                    <input type="text" class="form-control credit-inputs" placeholder="Name"></input>
+                                    <label for="credit_name"class="credit-card-label">Name on card</label>
+                                    <input type="text" id="credit_name"class="form-control credit-inputs" placeholder="Name"></input>
                                 </div>
                                 <div>
-                                    <label class="credit-card-label">Card number</label>
-                                    <input type="text" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></input>
+                                    <label for="credit_number" class="credit-card-label">Card number</label>
+                                    <input type="text" id="credit_number" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></input>
 
                                 </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label class="credit-card-label">Date</label>
-                                    <input type="text" class="form-control credit-inputs" placeholder="01/01"></input>
+                                    <label for="credit_date" class="credit-card-label">Date</label>
+                                    <input type="text" id="credit_date" class="form-control credit-inputs" placeholder="01/01"></input>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="credit-card-label">CVV</label>
-                                    <input type="text" class="form-control credit-inputs" placeholder="111"></input>
+                                    <label for="credit_cvv" class="credit-card-label">CVV</label>
+                                    <input type="text" id="credit_cvv" class="form-control credit-inputs" placeholder="111"></input>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between information"><span>Subtotal</span><span>${subtotalPrice}</span></div>
@@ -393,11 +393,11 @@
             <form className='form-group' autoComplete="off"
             onSubmit={handleLogin}>               
                 <label for="email">Email</label>
-                <input type="email" className='form-control' required
+                <input type="email"  id = "email" className='form-control' required
                 onChange={(e)=>setEmail(e.target.value)} value={email}></input>
                 <br></br>
-                <label for="password">Password</label>
-                <input type="password" className='form-control' required
+                <label for="pass">Password</label>
+                <input type="password" id = "pass"className='form-control' required
                 onChange={(e)=>setPassword(e.target.value)} value={password}></input>
                 <br></br>
                 <div className='btn-box'>
@@ -489,8 +489,8 @@
                 <input type="email" className='form-control' required
                     onChange={(e) => setEmail(e.target.value)} value={email} />
                 <br />
-                <label htmlFor="password">Password</label>
-                <input type="password" className='form-control' required
+                <label htmlFor="pass">Password</label>
+                <input type="password" id="pass" className='form-control' required
                     onChange={(e) => setPassword(e.target.value)} value={password} />
                 <br />
                 <button type="submit" className='btn btn-success btn-md mybtn'>SUBMIT</button>
