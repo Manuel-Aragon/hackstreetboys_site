@@ -11,19 +11,19 @@
             <br></br>
         </>} 
         <form autoComplete="off" className='form-group' onSubmit={handleAddEvents}>
-            <label for="ann_title">Announcement Title</label>
+            <label for="ann_title">Announcement Title (required):</label>
             <input type="text" id="ann_title" className='form-control' required
             onChange={(e)=>setTitle(e.target.value)} value={title}></input>
             <br></br>
-            <label for="ann_descr">Announcement Description</label>
+            <label for="ann_descr">Announcement Description (required):</label>
             <input type="text" id="ann_descr" className='form-control' required
             onChange={(e)=>setDescription(e.target.value)} value={description}></input>
             <br></br>
-            <label for="ann_date">Announcement Date</label>
+            <label for="ann_date">Announcement Date (required):</label>
             <input type="text" id="ann_date"className='form-control' required
             onChange={(e)=>setDate(e.target.value)} value={date}></input>
             <br></br>
-            <label for="ann_time">Announcement Time</label>
+            <label for="ann_time">Announcement Time (required):</label>
             <input type="text" id="ann_time" className='form-control' required
             onChange={(e)=>setTime(e.target.value)} value={time}></input>
             <br></br>
@@ -120,7 +120,7 @@
 
          <!-- Announcements Page-->
 
-         <div>
+        <div>
             <Navbar/>
             <html>
             <div>
@@ -266,11 +266,11 @@
                                 <span>Card details</span>
                             </div>
                                 <div>
-                                    <label for="credit_name"class="credit-card-label">Name on card:</label>
+                                    <label for="credit_name"class="credit-card-label">Name on card</label>
                                     <input type="text" id="credit_name"class="form-control credit-inputs" placeholder="Name"></input>
                                 </div>
                                 <div>
-                                    <label for="credit_number" class="credit-card-label">Card number:</label>
+                                    <label for="credit_number" class="credit-card-label">Card number</label>
                                     <input type="text" id="credit_number" class="form-control credit-inputs" placeholder="0000 0000 0000 0000"></input>
 
                                 </div>
