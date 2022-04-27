@@ -49,7 +49,7 @@ export const App = () => {
           <Route path="/add" element={<AddProducts/>}/>    
           <Route path="/addevent" element={<AddEvents/>}/>
           <Route path="/addnews" element={<AddAnnouncements/>}/>
-          <Route path='/Reservation' element ={<Reservations />} />
+          <Route path='/Reservations' element ={<Reservations />} />
           <Route element={NotFound}/>       
       </Routes>
     </BrowserRouter>
