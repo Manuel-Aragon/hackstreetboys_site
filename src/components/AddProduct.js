@@ -75,20 +75,20 @@ export const AddProducts = () => {
                 <br></br>
             </>} 
             <form autoComplete="on" className='form-group' onSubmit={handleAddProducts}>
-                <label for="text">Product Title</label>
-                <input type="text" className='form-control' required
+                <label for="add_prod_title">Product Title</label>
+                <input type="text" id="add_prod_title"className='form-control' required
                 onChange={(e)=>setTitle(e.target.value)} value={title}></input>
                 <br></br>
-                <label for="text">Product Description</label>
-                <input type="text" className='form-control' required
+                <label for="add_prod_desc">Product Description</label>
+                <input type="text" id="add_prod_desc"className='form-control' required
                 onChange={(e)=>setDescription(e.target.value)} value={description}></input>
                 <br></br>
-                <label for="number">Product Price</label>
-                <input type="number" className='form-control' required
+                <label for="add_prod_price">Product Price</label>
+                <input type="number" id="add_prod_price"className='form-control' required
                 onChange={(e)=>setPrice(e.target.value)} value={price}></input>
                 <br></br>
-                <label for="file">Upload Product Image</label>
-                <input type="file" id="file" className='form-control' required
+                <label for="add_prod_up">Upload Product Image</label>
+                <input type="file" id="add_prod_up" className='form-control' required
                 onChange={handleProductImg}></input>
                 
                 {imageError&&<>

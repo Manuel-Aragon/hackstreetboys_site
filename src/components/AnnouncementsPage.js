@@ -1,66 +1,97 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import { Navbar } from './Navbar'
+import { Announcements } from './Announcements'
 import { Footer } from './Footer'
+import {auth,fs} from '../firebase-config'
 
 export const AnnouncementsPage = () => {
+        // gettin current user uid
+        function GetUserUid(){
+            const [uid, setUid]=useState(null);
+            useEffect(()=>{
+                auth.onAuthStateChanged(user=>{
+                    if(user){
+                        setUid(user.uid);
+                    }
+                })
+            },[])
+            return uid;
+        }
+    
+        const uid = GetUserUid();
+        console.log(uid);
+    // getting current user function
+    function GetCurrentUser(){
+        const [user, setUser]=useState(null);
+        useEffect(()=>{
+            auth.onAuthStateChanged(user=>{
+                if(user){
+                    fs.collection('users').doc(user.uid).get().then(snapshot=>{
+                        setUser(snapshot.data().FullName);
+                    })
+                }
+                else{
+                    setUser(null);
+                }
+            })
+        },[])
+        return user;
+    }
 
+    const user = GetCurrentUser();
+    console.log(user);
+    
+    // state of events
+    const [announcements, setAnnouncements]=useState([]);
+
+    // getting events function
+    const getannouncements = async ()=>{
+        const announcements = await fs.collection('Announcements').get();
+        const announcementsArray = [];
+        for (var snap of announcements.docs){
+            var data = snap.data();
+            data.ID = snap.id;
+            announcementsArray.push({
+                ...data
+            })
+            if(announcementsArray.length === announcements.docs.length){
+                setAnnouncements(announcementsArray);
+            }
+        }
+    }
+
+    useEffect(()=>{
+        getannouncements();
+    },[])
     return (
         <div>
-            <Navbar/>
-            <html>
             <div>
-                <div class="container-fluid p-2 bg-dark">
-                    <div class="row">
-                        <div class="col-md-12 d-flex justify-content-center right-bck p-4">
-                            <div class="registration-right">
-                                <h2>Announcements</h2>
-                                <div class="event-list">
-                                <div class="card flex-row">
-                                        <div class="card-body">
-                                            <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>APR 20, 2022</span><em class="fas fa-caret-right" aria-hidden="true"></em><span>3:41 PM</span> </h4>
-                                            <p class="card-text">The Hackstreet Boys are coming to Dallas, TX.</p>
-                                            <button id="modal-btn"> Read More</button>
-
+                <Navbar/>
+            </div>
+            <div class="container-fluid p-2 bg-dark">
+                <div class="row">
+                    <div class="col-md-12 d-flex justify-content-center right-bck p-4">
+                        <div class="registration-right">
+                            <h2>Announcements</h2>
+                            <div className='event-list'>
+                            <br></br>
+                                {announcements.length > 0 && (
+                                    <div>
+                                        <div class="card flex-row">
+                                                <div class="card-body">
+                                                        <Announcements announcements={announcements}/>
+                                                </div>
                                         </div>
                                     </div>
-
-                                    <div class="card flex-row">
-                                        <div class="card-body">
-                                            <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>APR 03, 2022</span><em class="fas fa-caret-right" aria-hidden="true"></em><span>9:35 AM</span> </h4>
-                                            <p class="card-text">Ahmed Alrimawi's wife gave birth to their 7th child this morning at 8:13 AM.</p>
-                                            <button id="modal-btn"> Read More</button>
-                                        </div>
-                                    </div>
-                                    <div class="card flex-row">
-                                        <div class="card-body">
-                                            <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>MAR 17, 2022</span><em class="fas fa-caret-right" aria-hidden="true"></em><span>10:00 PM</span> </h4>
-                                            <p class="card-text">We are very excited to announce that we will be in Greenville on April 23.</p>
-                                            <button id="modal-btn"> Read More</button>
-                                        </div>
-                                    </div>
-                                    <div class="card flex-row">
-                                        <div class="card-body">
-                                            <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>Feb 03, 2022</span><em class="fas fa-caret-right" aria-hidden="true"></em><span>12:09 AM</span> </h4>
-                                            <p class="card-text">Meet and Greet officially scheduled.</p>
-                                            <button id="modal-btn"> Read More</button>
-                                        </div>
-                                    </div>
-                                    <div class="card flex-row">
-                                        <div class="card-body">
-                                            <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em><span>JAN 01, 2022</span><em class="fas fa-caret-right" aria-hidden="true"></em><span>11:34 AM</span> </h4>
-                                            <p class="card-text">The Hackstreet Boys are officially going on tour!</p>
-                                            <button id="modal-btn"> Read More</button>
-                                        </div>
-                                    </div>
-                                </div>
+                                )}
+                                {announcements.length < 1 && (
+                                    <div className='container-fluid'>Please wait....</div>
+                                )}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </html>
-
-            
             <div>
                 <Footer/>
             </div>

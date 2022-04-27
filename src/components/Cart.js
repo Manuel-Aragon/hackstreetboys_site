@@ -168,9 +168,10 @@ export const Cart = () => {
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span>Card details</span>
                                 </div>
+                                
                                     <div>
                                         <label class="credit-card-label">Name on card</label>
-                                        <input type="text" class="form-control credit-inputs" placeholder="Name"></input>
+                                        <input type="text" class="form-control" placeholder="Name"></input>
                                     </div>
                                     <div>
                                         <label class="credit-card-label">Card number</label>

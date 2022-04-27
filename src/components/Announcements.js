@@ -1,11 +1,11 @@
 
 import React from 'react'
-import {IndividualAnnouncements} from './IndividualAnnouncements'
+import {IndividualAnnouncement} from './IndividualAnnouncement'
 
 export const Announcements = ({announcements}) => {
     
-    return announcements.map((IndividualAnnouncements)=>(
-            <li>< IndividualAnnouncements key = {IndividualAnnouncements.ID} IndividualAnnouncements={IndividualAnnouncements}
+    return announcements.map((individualAnnouncement)=>(
+            <li>< IndividualAnnouncement key = {individualAnnouncement.ID} individualAnnouncement={individualAnnouncement}
            /></li>
     ))
 }
