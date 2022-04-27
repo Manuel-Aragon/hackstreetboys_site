@@ -134,6 +134,34 @@ export const Reservations = () => {
             alert('Something went wrong in checkout');
         }
      }
+// Set the date we're counting down to
+var countDownDate = new Date().getTime()+(1000)*6*10;
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+
    
     return (
         <>
@@ -145,16 +173,19 @@ export const Reservations = () => {
                         <div className="col-md-8">
                             <div className="product-details mr-2">
                                 <h6 className="mb-0">Shopping cart</h6>
+                                {setInterval(() => {
+                                    
+                                }, 1)}
                                 <div className="d-flex justify-content-between"><span>You have {reservationItems.length} items in your cart</span>
                                 </div>
-                                {reservationItems.length > 0 && (
+                                {/* {reservationItems.length > 0 && (
                                         <div className='products-box'>
                                             <ReservationProducts reservationItems={reservationItems}
                                             reservationIncrease={reservationIncrease}
                                             reservationDecrease={reservationDecrease}
                                             />
                                         </div>
-                                )}
+                                )} */}
                                 {reservationItems.length < 1 && (
                                     <div className='container-fluid'>No products to show</div>
                                 ) }    
