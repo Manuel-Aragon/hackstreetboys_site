@@ -23,7 +23,7 @@ export function GetCurrentUser(){
       auth.onAuthStateChanged(user=>{
           if(user){
               fs.collection('users').doc(user.uid).get().then(snapshot=>{
-                  setUser(snapshot.data().FullName);
+                  setUser(snapshot.data().Name);
               })
           }
           else{

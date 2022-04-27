@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-
-import { Link } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import { Navbar } from './Navbar';
+import { auth, fs } from '../firebase-config'
 
 export const Register = (props) => {
 
@@ -9,9 +9,25 @@ export const Register = (props) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
     // signup
+    let navigate = useNavigate();
     const signup = (e) => {
+        e.preventDefault();
+        auth.createUserWithEmailAndPassword(email, password).then((cred) => {
+            fs.collection('users').doc(cred.user.uid).set({
+                Name: name,
+                Email: email,
+                Password: password
+            }).then(() => {
+                setName('');
+                setEmail('');
+                setPassword('');
+                navigate(`/`);
+                setError('');
+            }).catch(err => setError(err.message));
+        }).catch(err => setError(err.message));
     }
 
     return (
@@ -38,7 +54,7 @@ export const Register = (props) => {
             <br />
             <button type="submit" className='btn btn-success btn-md mybtn'>SUBMIT</button>
         </form>
-        {/* {error && <span className='error-msg'>{error}</span>} */}
+        {error && <span className='error-msg'>{error}</span>}
         <br />
         <span>Already have an account? Login
             <Link to="/login"> Here</Link>
