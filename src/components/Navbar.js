@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import {auth} from '../firebase-config'
 import {useNavigate} from 'react-router-dom'
 import { GetCurrentUser } from '../App'
+import logo from '../img/logo.jpeg'
 
 export const Navbar = () => {
 
@@ -27,7 +28,7 @@ export const Navbar = () => {
                 <div className='container'>
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <span><Link to="/" className='nav-link'>Home</Link></span>
+                            <img src={logo} alt="Site Logo" hieght={50} width={100} />
                         </li>
                         <li class="nav-item">
                             <span><Link to="/Merch" className='nav-link'>Merch</Link></span>

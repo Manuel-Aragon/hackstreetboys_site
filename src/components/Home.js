@@ -26,6 +26,7 @@ export const Home = () => {
                                 </p>
                                 <li className='btn btn-secondary btn-md' onClick={register}>Register</li>
                             </div> 
+                            
                         </div>
                     </div>
                 </div>
