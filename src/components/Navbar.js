@@ -24,28 +24,28 @@ export const Navbar = () => {
     }
 
     return (
-            <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
+            <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 fixed-top">
                 <div className='container'>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
+                    <ul className="navbar-nav ms-auto">
+                        <li className="nav-item">
                             <img src={logo} alt="Site Logo" hieght={50} width={100} />
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <span><Link to="/Merch" className='nav-link'>Merch</Link></span>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <span><Link to="/Events" className='nav-link'>Events</Link></span>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                         <span><Link to="/Announcements" className='nav-link'>Announcements</Link></span>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <span><Link to='/Bio' className='nav-link'>Bio</Link></span>
                         </li>
                     </ul>
-                    <div class="collapse navbar-collapse" id="navmenu">
+                    <div className="collapse navbar-collapse" id="navmenu">
                         {!GetCurrentUser()&&<>
-                            <ul class="navbar-nav ms-auto">
+                            <ul className="navbar-nav ms-auto">
                             <li  className='btn btn-secondary btn-md'
                                     onClick={handleRegister}>Register</li> 
                                     <li  className='btn btn-primary btn-md'
@@ -54,11 +54,11 @@ export const Navbar = () => {
                         </>} 
 
                         {GetCurrentUser()&&<>
-                            <ul class="navbar-nav ms-auto">
-                                <li class="nav-item">
+                            <ul className="navbar-nav ms-auto">
+                                <li className="nav-item">
                                     <span><Link to='/Cart' className='nav-link'>Cart</Link></span>
                                 </li>
-                                <li class="nav-item">
+                                <li className="nav-item">
                                     <span><Link to='/Reservations' className='nav-link'>Reservations</Link></span>
                                 </li>
                                 <li>

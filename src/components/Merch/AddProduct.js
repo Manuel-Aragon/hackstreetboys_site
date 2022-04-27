@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
-import {storage,fs} from '../firebase-config'
-import { Navbar } from './Navbar';
+import {storage,fs} from '../../firebase-config'
+import { Navbar } from '../Navbar';
 
 export const AddProducts = () => {
 

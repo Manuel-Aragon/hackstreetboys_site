@@ -1,9 +1,10 @@
 import React,{useState, useEffect} from 'react'
-import { Navbar } from './Navbar'
+import { Navbar } from '../Navbar'
+import { Footer } from '../Footer'
 import { Events } from './Events'
-import { Footer } from './Footer'
-import {auth,fs} from '../firebase-config'
+import {auth,fs} from '../../firebase-config'
 import './event.css'
+import { useNavigate } from 'react-router-dom'
 
 export const EventPage = (props) => {
         // gettin current user uid
@@ -28,7 +29,7 @@ export const EventPage = (props) => {
             auth.onAuthStateChanged(user=>{
                 if(user){
                     fs.collection('users').doc(user.uid).get().then(snapshot=>{
-                        setUser(snapshot.data().FullName);
+                        setUser(snapshot.data().Name);
                     })
                 }
                 else{
@@ -65,7 +66,21 @@ export const EventPage = (props) => {
         getevents();
     },[])
 
-
+    let Reservation;
+    let navigate = useNavigate();
+    const reserve = (event)=>{
+        if(uid!==null){
+            Reservation=event;
+            Reservation['qty']=1;
+            Reservation['TotalProductPrice']=Reservation.qty*Reservation.price;
+            fs.collection('Reservation ' + uid).doc(event.ID).set(Reservation).then(()=>{
+                console.log('added to reservation page');
+            })
+        }
+        else{
+            navigate('/login');
+        }
+    }
 
     return (
         <div>
@@ -77,7 +92,8 @@ export const EventPage = (props) => {
                     <div className='container-fluid'>
                         <br></br>
                         <div className='events-box'>
-                            <Events events={events}/>
+                            
+                            <Events events={events} reserve={reserve}/>
                         </div>
                     </div>
                 </div>

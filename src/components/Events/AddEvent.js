@@ -1,13 +1,15 @@
 import React,{useState} from 'react'
-import {fs} from '../firebase-config'
-import { Navbar } from './Navbar';
+import {fs} from '../../firebase-config'
+import { Navbar } from '../Navbar';
 
-export const AddAnnouncements = () => {
+export const AddEvents = () => {
 
-    const [title, setTitle]=useState('');
+    const [city, setCity]=useState('');
+    const [state, setState]=useState('');
     const [description, setDescription]=useState('');
+    const [price, setPrice]=useState('');
     const [date, setDate]=useState('');
-    const [time, setTime]=useState('');
+    const [location, setLocation]=useState('');
     
     const [successMsg, setSuccessMsg]=useState('');
 
@@ -16,17 +18,21 @@ export const AddAnnouncements = () => {
         e.preventDefault();
         // console.log(title, description, price);
         // console.log(image);
-        fs.collection('Announcements').add({
-                    title,
+        fs.collection('Events').add({
+                    city,
+                    state,
                     description,
+                    price: Number(price),
                     date,
-                    time
+                    location
                 }).then(()=>{
                     setSuccessMsg('Event added successfully');
-                    setTitle('');
+                    setCity('');
+                    setState('');
                     setDescription('');
+                    setPrice('');
                     setDate('');
-                    setTime('');
+                    setLocation('');
                     document.getElementById('file').value='';
                     setTimeout(()=>{
                         setSuccessMsg('');
@@ -46,21 +52,29 @@ export const AddAnnouncements = () => {
                 <br></br>
             </>} 
             <form autoComplete="off" className='form-group' onSubmit={handleAddEvents}>
-                <label>Announcement Title</label>
+                <label>Event City</label>
                 <input type="text" className='form-control' required
-                onChange={(e)=>setTitle(e.target.value)} value={title}></input>
+                onChange={(e)=>setCity(e.target.value)} value={city}></input>
                 <br></br>
-                <label>Announcement Description</label>
+                <label>Event State</label>
+                <input type="text" className='form-control' required
+                onChange={(e)=>setState(e.target.value)} value={state}></input>
+                <br></br>
+                <label>Event Description</label>
                 <input type="text" className='form-control' required
                 onChange={(e)=>setDescription(e.target.value)} value={description}></input>
                 <br></br>
-                <label>Announcement Date</label>
+                <label>Event Price</label>
+                <input type="number" className='form-control' required
+                onChange={(e)=>setPrice(e.target.value)} value={price}></input>
+                <br></br>
+                <label>Event Date</label>
                 <input type="text" className='form-control' required
                 onChange={(e)=>setDate(e.target.value)} value={date}></input>
                 <br></br>
-                <label>Announcement Time</label>
+                <label>Event Location</label>
                 <input type="text" className='form-control' required
-                onChange={(e)=>setTime(e.target.value)} value={time}></input>
+                onChange={(e)=>setLocation(e.target.value)} value={location}></input>
                 <br></br>
 
                 <br></br>           

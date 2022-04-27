@@ -1,8 +1,8 @@
 import React,{useState, useEffect} from 'react'
-import { Navbar } from './Navbar'
-import { Footer } from './Footer'
+import { Navbar } from '../Navbar'
+import { Footer } from '../Footer'
 import { Products } from './Products'
-import {auth,fs} from '../firebase-config'
+import {auth,fs} from '../../firebase-config'
 import {useNavigate} from 'react-router-dom'
 import './Merch.css'
 
@@ -30,7 +30,7 @@ export const Merch = (props) => {
             auth.onAuthStateChanged(user=>{
                 if(user){
                     fs.collection('users').doc(user.uid).get().then(snapshot=>{
-                        setUser(snapshot.data().FullName);
+                        setUser(snapshot.data().Name);
                     })
                 }
                 else{

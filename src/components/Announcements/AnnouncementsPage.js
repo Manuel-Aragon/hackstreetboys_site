@@ -1,8 +1,8 @@
 import React,{useState, useEffect} from 'react'
-import { Navbar } from './Navbar'
+import { Navbar } from '../Navbar'
 import { Announcements } from './Announcements'
-import { Footer } from './Footer'
-import {auth,fs} from '../firebase-config'
+import { Footer } from '../Footer'
+import {auth,fs} from '../../firebase-config'
 
 export const AnnouncementsPage = () => {
         // gettin current user uid
@@ -27,7 +27,7 @@ export const AnnouncementsPage = () => {
             auth.onAuthStateChanged(user=>{
                 if(user){
                     fs.collection('users').doc(user.uid).get().then(snapshot=>{
-                        setUser(snapshot.data().FullName);
+                        setUser(snapshot.data().Name);
                     })
                 }
                 else{
@@ -68,17 +68,17 @@ export const AnnouncementsPage = () => {
             <div>
                 <Navbar/>
             </div>
-            <div class="container-fluid p-2 bg-dark">
-                <div class="row">
-                    <div class="col-md-12 d-flex justify-content-center right-bck p-4">
-                        <div class="registration-right">
+            <div className="container-fluid p-2 bg-dark">
+                <div className="row">
+                    <div className="col-md-12 d-flex justify-content-center right-bck p-4">
+                        <div className="registration-right">
                             <h2>Announcements</h2>
                             <div className='event-list'>
                             <br></br>
                                 {announcements.length > 0 && (
                                     <div>
-                                        <div class="card flex-row">
-                                                <div class="card-body">
+                                        <div className="card flex-row">
+                                                <div className="card-body">
                                                         <Announcements announcements={announcements}/>
                                                 </div>
                                         </div>

@@ -17,11 +17,11 @@ export const IndividualAnnouncement = ({individualAnnouncement}) => {
 // }
 
   return (
-    <div class="card-body">
-        <h4 class="card-title h5 h4-sm"><em class="fas fa-caret-right" aria-hidden="true"></em>
-          <span>{individualAnnouncement.date}</span><em class="fas fa-caret-right" aria-hidden="true"></em>
+    <div className="card-body">
+        <h4 className="card-title h5 h4-sm"><em className="fas fa-caret-right" aria-hidden="true"></em>
+          <span>{individualAnnouncement.date}</span><em className="fas fa-caret-right" aria-hidden="true"></em>
           <span>{individualAnnouncement.time}</span> </h4>
-        <p class="card-text">{individualAnnouncement.title}</p>
+        <p className="card-text">{individualAnnouncement.title}</p>
         <button id="modal-btn"> Read more</button>
     </div>
     )
