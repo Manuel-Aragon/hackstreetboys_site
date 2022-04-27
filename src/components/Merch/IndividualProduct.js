@@ -12,7 +12,7 @@ export const IndividualProduct = ({individualProduct, addToCart}) => {
                 </div>
                 <div class="card-body">
                     <div className='product-img'>
-                        <img src={individualProduct.url} alt="product-img"/>
+                        <img src={individualProduct.url} alt="product-img" width={150}/>
                     </div>
                     <div className='product-text description'>{individualProduct.description}</div>
                     <div className='product-text price'>$ {individualProduct.price}</div>
