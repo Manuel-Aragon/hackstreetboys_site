@@ -14,6 +14,7 @@ import {NotFound} from './components/NotFound'
 import {AddProducts} from './components/AddProduct'
 import {AddEvents} from './components/AddEvent'
 import { AddAnnouncements } from './components/AddAnnouncement'
+import { Reservations } from './components/Reservations'
 
 export function GetCurrentUser(){
   const [user, setUser]=useState(null);
@@ -48,6 +49,7 @@ export const App = () => {
           <Route path="/add" element={<AddProducts/>}/>    
           <Route path="/addevent" element={<AddEvents/>}/>
           <Route path="/addnews" element={<AddAnnouncements/>}/>
+          <Route path='/Reservation' element ={<Reservations />} />
           <Route element={NotFound}/>       
       </Routes>
     </BrowserRouter>
