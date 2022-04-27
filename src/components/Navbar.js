@@ -58,9 +58,9 @@ export const Navbar = () => {
                                 <li class="nav-item">
                                     <span><Link to='/Cart' className='nav-link'>Cart</Link></span>
                                 </li>
-                                {/* <li class="nav-item">
-                                    <span><Link to='/' className='nav-link'>Reservations</Link></span>
-                                </li> */}
+                                <li class="nav-item">
+                                    <span><Link to='/Reservations' className='nav-link'>Reservations</Link></span>
+                                </li>
                                 <li>
                                 <div className='btn btn-danger btn-md'
                                     onClick={handleLogout}>Logout</div>          
