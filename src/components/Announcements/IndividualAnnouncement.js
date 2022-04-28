@@ -31,16 +31,7 @@ export const IndividualAnnouncement = ({individualAnnouncement}) => {
   function closeModal() {
     setIsOpen(false);
   }
-   let more = false
-  const handlereserve=()=>{
-} 
-  const open=()=>{
-    more=true;
-  }
-
-  const close=()=>{
-    more = false;
-  }
+   
   return (
     <div className="card-body">
         <h4 className="card-title h5 h4-sm"><em className="fas fa-caret-right" aria-hidden="true"></em>
