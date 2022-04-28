@@ -29,20 +29,23 @@ export const IndividualReservationProduct = ({reservationProduct,reservationProd
         })
     }
 
-    const handleNotification = async()=>{
-       const timerComplete = false;
-       if(timerComplete===true){
-           toast.success('Your ticket reservation has been removed from the cart', {
-               position: 'top-right',
-               autoClose: 5000,
-               hideProgressBar: false,
-               closeOnClick: true,
-               pauseOnHover: false,
-               draggable: false,
-               progress: undefined,
-             });
-       }
-    }
+    // let timerComplete = false;
+    // const navigate = useNavigate();
+
+    // const handleNotification = async()=>{
+    // //     if(timerComplete===true){
+           
+    // //        toast.success('Your ticket reservation has been removed from the cart', {
+    // //            position: 'top-right',
+    // //            autoClose: 5000,
+    // //            hideProgressBar: false,
+    // //            closeOnClick: true,
+    // //            pauseOnHover: false,
+    // //            draggable: false,
+    // //            progress: undefined,
+    // //          });
+    // //    }
+    // }
 
     const calculateTimeLeft = () => {
         var countEnd =  reservationProduct.countdownEnd;
@@ -74,11 +77,12 @@ export const IndividualReservationProduct = ({reservationProduct,reservationProd
 
       Object.keys(timeLeft).forEach((interval) => {
         if (!timeLeft[interval]) {
+            //timerComplete = true;
           return;
         }
         console.log(timeLeft[interval]);
         timerComponents.push(
-          <span>
+          <span className="timer text-danger">
             {timeLeft[interval]} {interval}{" "}
           </span>
         );
@@ -91,11 +95,10 @@ export const IndividualReservationProduct = ({reservationProduct,reservationProd
             <div className="d-flex justify-content-between align-items-center mt-4 items rounded">
                 <div className="d-flex flex-row">
                     <div className='event-Date'>
-                        <span className="font-weight-bold d-block px-2">{reservationProduct.date}</span>
+                        <span className="font-weight-bold d-block px-2">{reservationProduct.date} , </span>
                     </div>
                     <div className="ml-2">
-                        <span className="font-weight-bold d-block px-2">{reservationProduct.title}</span>
-                        <span className="spec px-2">{reservationProduct.description}</span>
+                        <span className="font-weight-bold d-block px-2">{reservationProduct.location}</span>
                     </div>
                 </div>
             <div className="d-flex flex-row align-items-center p-3">
@@ -110,14 +113,15 @@ export const IndividualReservationProduct = ({reservationProduct,reservationProd
                     </div>
                 </div>
                 <span className="d-block ml-5 font-weight-bold px-4 align-items-center">${reservationProduct.price}</span>
-                <div className='product-text reservation-price '>${reservationProduct.TotalProductPrice}</div>
-                <div className = 'timer-text'>
-                    {timerComponents.length ? timerComponents : <span>Time's up!</span>}                </div>
+                <span className='d-block ml-5 font-weight-bold px-4 align-items-center text-success'>${reservationProduct.TotalProductPrice}</span>
+                <div className = 'timer-text ml-5 font-weight-bold px-4 align-items-center'>
+                    {timerComponents.length ? timerComponents : <span>Time's up!</span>}                
                     {!timerComponents.length&&<>
-                    {handleNotification()}
+                    {/*handleNotification()*/}
                     {handleReservationProductDelete()}
                         </>} 
-                <div className='btn btn-danger btn-md reservation-btn' onClick={handleReservationProductDelete} >DELETE</div>  
+                </div>
+                <div className='btn btn-danger btn-md reservation-btn ml-5 font-weight-bold px-4 align-items-center' onClick={handleReservationProductDelete} > Delete</div>  
             </div>
           
             </div>

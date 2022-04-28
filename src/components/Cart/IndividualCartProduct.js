@@ -49,8 +49,8 @@ export const IndividualCartProduct = ({cartProduct,cartProductIncrease,cartProdu
                     </div>
                 </div>
                 <span className="d-block ml-5 font-weight-bold px-4 align-items-center">${cartProduct.price}</span>
-                <div className='product-text cart-price '>${cartProduct.TotalProductPrice}</div>
-                <div className='btn btn-danger btn-md cart-btn' onClick={handleCartProductDelete} >DELETE</div>  
+                <div className='d-block ml-5 font-weight-bold px-4 align-items-center text-success'>${cartProduct.TotalProductPrice}</div>
+                <div className='btn btn-danger btn-md reservation-btn ml-5 font-weight-bold px-4 align-items-center' onClick={handleCartProductDelete} >DELETE</div>  
             </div>
           
             </div>
