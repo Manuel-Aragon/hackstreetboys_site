@@ -47,7 +47,7 @@ export const AnnouncementsPage = ({title}) => {
 
     // getting events function
     const getannouncements = async ()=>{
-        const announcements = await fs.collection('Announcements').get();
+        const announcements = await fs.collection('Announcements').orderBy("date", "asc").get();
         const announcementsArray = [];
         for (var snap of announcements.docs){
             var data = snap.data();

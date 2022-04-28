@@ -24,7 +24,7 @@ export const IndividualAnnouncement = ({individualAnnouncement}) => {
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
-    subtitle.style.color = '#00FF0B';
+    subtitle.style.color = '#000000';
   }
 
   function closeModal() {

@@ -46,7 +46,7 @@ export const EventPage = (props) => {
 
     // getting events function
     const getevents = async ()=>{
-        const events = await fs.collection('Events').get();
+        const events = await fs.collection('Events').orderBy("date","asc").get();
         const eventsArray = [];
         for (var snap of events.docs){
             var data = snap.data();
