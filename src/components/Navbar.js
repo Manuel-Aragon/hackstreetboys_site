@@ -27,7 +27,9 @@ export const Navbar = () => {
                 <div className='container'>
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <img src={logo} alt="Site Logo" hieght={50} width={100} />
+                            <span><Link to="/" className='navlink'>
+                                <img src={logo} alt="Site Logo and link to home" hieght={50} width={100} />
+                            </Link></span>
                         </li>
                         <li className="nav-item">
                             <span><Link to="/Merch" className='nav-link'>Merch</Link></span>
