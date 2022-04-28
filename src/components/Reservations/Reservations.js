@@ -1,7 +1,6 @@
 
    
 import React,{useState, useEffect} from 'react'
-import {Navbar} from '../Navbar'
 import {auth,fs} from '../../firebase-config'
 import { ReservationProducts } from './ReservationProducts';
 import { toast } from 'react-toastify';
@@ -138,8 +137,7 @@ export const Reservation = () => {
      }
    
     return (
-        <>
-            <Navbar user={user} />           
+        <>        
             <br></br>
             <div className="container p-5 bg-dark d-flex">
                 <div className="container mt-5 p-5 rounded cart">

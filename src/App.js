@@ -53,7 +53,7 @@ export const App = () => {
           <Route path="/addevent" element={<AddEvents/>}/>
           <Route path="/addnews" element={<AddAnnouncements/>}/>
           <Route path='/Reservations' element ={<Reservation />} />
-          <Route element={NotFound}/>       
+          <Route render={() => <h1>404: page not found</h1>} />
       </Routes>
       <Footer/>
     </BrowserRouter>

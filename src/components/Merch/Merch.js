@@ -1,6 +1,4 @@
 import React,{useState, useEffect} from 'react'
-import { Navbar } from '../Navbar'
-import { Footer } from '../Footer'
 import { Products } from './Products'
 import {auth,fs} from '../../firebase-config'
 import {useNavigate} from 'react-router-dom'
@@ -88,7 +86,6 @@ export const Merch = (props) => {
 
     return (
         <div>
-            <Navbar/>  
             <br></br>         
             <br></br>
             <br></br>
@@ -105,7 +102,6 @@ export const Merch = (props) => {
                     )}
             </div>
             <br></br>
-            <Footer/>
         </div>
     )
 }

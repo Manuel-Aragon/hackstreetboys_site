@@ -3,8 +3,10 @@ import { Navbar } from '../Navbar'
 import { Announcements } from './Announcements'
 import { Footer } from '../Footer'
 import {auth,fs} from '../../firebase-config'
+  
 
-export const AnnouncementsPage = () => {
+
+export const AnnouncementsPage = ({title}) => {
         // gettin current user uid
         function GetUserUid(){
             const [uid, setUid]=useState(null);
@@ -63,6 +65,8 @@ export const AnnouncementsPage = () => {
     useEffect(()=>{
         getannouncements();
     },[])
+
+
     return (
         <div>
             <div>

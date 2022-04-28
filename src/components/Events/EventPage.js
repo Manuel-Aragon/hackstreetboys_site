@@ -1,6 +1,4 @@
 import React,{useState, useEffect} from 'react'
-import { Navbar } from '../Navbar'
-import { Footer } from '../Footer'
 import { Events } from './Events'
 import {auth,fs} from '../../firebase-config'
 import './event.css'
@@ -83,8 +81,7 @@ export const EventPage = (props) => {
     }
 
     return (
-        <div>
-            <Navbar/>           
+        <div>        
             <br></br>
             <div>
             {events.length > 0 && (
@@ -103,8 +100,6 @@ export const EventPage = (props) => {
                 <div className='container-fluid'>Please wait....</div>
             )}
             </div>
-
-            <Footer/>
         </div>
     )
 }

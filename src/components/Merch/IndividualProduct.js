@@ -13,8 +13,7 @@ export const IndividualProduct = ({individualProduct, addToCart}) => {
                 </div>
                 <div class="card-body">
                         <div className='product-text description row row-cols-md-2'>
-                            <p>Front</p>
-                            <p>Back</p>
+
                         </div>
                         <div className='product-img'>
                             <img src={LogoShirt} alt="product-img-front" width={150}/>

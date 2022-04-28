@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import {storage,fs} from '../../firebase-config'
-import { Navbar } from '../Navbar';
 
 export const AddProducts = () => {
 
@@ -65,7 +64,6 @@ export const AddProducts = () => {
   
     return (
         <div className='container'>
-            <Navbar/>
             <br></br>
             <br></br>
             <h1>Add Products</h1>

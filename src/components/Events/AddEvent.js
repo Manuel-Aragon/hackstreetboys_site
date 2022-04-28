@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
 import {fs} from '../../firebase-config'
-import { Navbar } from '../Navbar';
 
 export const AddEvents = () => {
 
@@ -42,8 +41,6 @@ export const AddEvents = () => {
   
     return (
         <div className='container'>
-            <Navbar/>
-            <br></br>
             <br></br>
             <h1>Add Events</h1>
             <hr></hr>        

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link, useNavigate} from 'react-router-dom'
-import { Navbar } from './Navbar';
 import { auth, fs } from '../firebase-config'
 
 export const Register = (props) => {
@@ -32,7 +31,6 @@ export const Register = (props) => {
 
     return (
         <div className='container'>
-        <Navbar/>
         <br></br>
         <br></br>
         <br></br>

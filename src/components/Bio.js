@@ -1,6 +1,5 @@
 import React from 'react'
 import './news.css'
-import { Navbar } from './Navbar'
 import {Footer} from './Footer'
 
 
@@ -8,8 +7,6 @@ export const Bio = () => {
 
     return (
         <div>
-
-            <Navbar/>
             <br></br>
             <div>
                 <div className="px-4 py-5  text-center bg-dark">

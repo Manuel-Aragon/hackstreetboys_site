@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { auth } from '../firebase-config'
 import { Link, useNavigate} from 'react-router-dom'
-import { Navbar } from './Navbar';
 
 
 export const Login = () => {
@@ -31,7 +30,6 @@ export const Login = () => {
 
     return (
         <div className='container'>
-            <Navbar/>
             <br></br>
             <br></br>
             <br></br>
