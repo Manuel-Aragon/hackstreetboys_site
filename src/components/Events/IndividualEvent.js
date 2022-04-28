@@ -12,9 +12,7 @@ export const IndividualEvent = ({individualEvent, reserve}) => {
                         <div className="col font-weight-bold text-md-right">{individualEvent.city}, {individualEvent.state}</div>
                         <div className="col-12 text-xs text-muted">{individualEvent.location}</div>
                         <button 
-                            type="button" className=" w-100 btn btn-lg btn-outline-primary"
-                            data-bs-toggle="modal"
-                            data-bs-target="#reserve" onClick={handlereserve}>${individualEvent.price} Reserve</button>
+                            type="button" className=" w-100 btn btn-lg btn-outline-success" onClick={handlereserve}>${individualEvent.price} Reserve</button>
                     </div>
                 </div>
         </div> 
