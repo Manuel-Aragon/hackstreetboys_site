@@ -66,7 +66,7 @@ export const Reservations = () => {
     const totalPrice = subtotalPrice*1.08 + shippingPrice;
 
     // global variable
-    let Ticket;
+    //let Ticket;
     
     // cart product increase function
     // const reservationIncrease=(reservation)=>{
