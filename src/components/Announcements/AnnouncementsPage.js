@@ -1,8 +1,7 @@
 import React,{useState, useEffect} from 'react'
-import { Navbar } from '../Navbar'
 import { Announcements } from './Announcements'
-import { Footer } from '../Footer'
 import {auth,fs} from '../../firebase-config'
+import './news.css'
   
 
 
@@ -69,9 +68,6 @@ export const AnnouncementsPage = ({title}) => {
 
     return (
         <div>
-            <div>
-                <Navbar/>
-            </div>
             <div className="container-fluid p-2 bg-dark">
                 <div className="row">
                     <div className="col-md-12 d-flex justify-content-center right-bck p-4">
@@ -80,13 +76,9 @@ export const AnnouncementsPage = ({title}) => {
                             <div className='event-list'>
                             <br></br>
                                 {announcements.length > 0 && (
-                                    <div>
-                                        <div className="card flex-row">
                                                 <div className="card-body">
                                                         <Announcements announcements={announcements}/>
                                                 </div>
-                                        </div>
-                                    </div>
                                 )}
                                 {announcements.length < 1 && (
                                     <div className='container-fluid'>Please wait....</div>
@@ -95,9 +87,6 @@ export const AnnouncementsPage = ({title}) => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                <Footer/>
             </div>
         </div>    
     )
