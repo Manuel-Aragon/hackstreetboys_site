@@ -97,7 +97,7 @@ export const Reservation = () => {
         const status = 'success';
         if(status==='success'){
             navigate('/');
-            toast.success('Your order has been placed successfully', {
+            toast.success('Your order for your tickets have been placed successfully', {
                 position: 'top-right',
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -126,7 +126,7 @@ export const Reservation = () => {
                     <div className="row no-gutters">
                         <div className="col-md-8">
                             <div className="product-details mr-2">
-                                <h6 className="mb-0">Shopping cart</h6>
+                                <h6 className="mb-0">Reservation List</h6>
                                 <div className="d-flex justify-content-between"><span>You have {reservationProducts.length} items in your cart</span>
                                 </div>
                                 {reservationProducts.length > 0 && (

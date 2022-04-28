@@ -6,17 +6,25 @@ import { CartProducts } from './CartProducts';
 import './cart.css'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
 import { GetCurrentUser } from '../../App'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 toast.configure();
 
+let ProductNumber;
+export function GetNumber(){
+    return ProductNumber;
+  }
+export function SetNumber(e){
+    ProductNumber = e;
+}
+
 export const Cart = () => {
-    const user = GetCurrentUser();
     // console.log(user);
     // state of cart products
     const [cartProducts, setCartProducts]=useState([]);
+
 
     // getting cart products from firestore collection and updating the state
     const navigate = useNavigate();
@@ -30,7 +38,7 @@ export const Cart = () => {
                         ID: doc.id,
                         ...doc.data(),
                     }));
-                    setCartProducts(newCartProduct);                    
+                    setCartProducts(newCartProduct);          
                 })
             }
             else{
@@ -52,7 +60,7 @@ export const Cart = () => {
 
     const subtotalPrice = price.reduce(reducerOfPrice,0);
     const shippingPrice = 1.00;
-    const totalPrice = subtotalPrice*1.08 + shippingPrice;
+    const totalPrice = subtotalPrice + shippingPrice;
 
     // global variable
     let Product;
@@ -112,7 +120,7 @@ export const Cart = () => {
                 draggable: false,
                 progress: undefined,
               });
-              
+              SetNumber(cartProducts.length);
               const uid = auth.currentUser.uid;
               const carts = await fs.collection('Cart ' + uid).get();
               for(var snap of carts.docs){
@@ -123,8 +131,6 @@ export const Cart = () => {
             alert('Something went wrong in checkout');
         }
      }
-     console.log(user);
-     console.log(GetCurrentUser());
      return (
          <div>
             {GetCurrentUser()&&<>
@@ -139,6 +145,7 @@ export const Cart = () => {
                                     </div>
                                     {cartProducts.length > 0 && (
                                             <div className='products-box'>
+                                                {SetNumber(cartProducts.length)}
                                                 <CartProducts cartProducts={cartProducts}
                                                 cartProductIncrease={cartProductIncrease}
                                                 cartProductDecrease={cartProductDecrease}
@@ -146,7 +153,10 @@ export const Cart = () => {
                                             </div>
                                     )}
                                     {cartProducts.length < 1 && (
-                                        <div className='container-fluid'>No products to show</div>
+
+                                        <div className='container-fluid'>
+                                        {SetNumber(cartProducts.length)}
+                                            No products to show</div>
                                     ) }    
                                 </div>
                             </div>

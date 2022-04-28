@@ -71,8 +71,12 @@ export const EventPage = (props) => {
             Reservation=event;
             Reservation['qty']=1;
             Reservation['TotalProductPrice']=Reservation.qty*Reservation.price;
+            Reservation['countdownStart']=new Date().getTime();
+            Reservation['countdownEnd']=Reservation.countdownStart + 1000*20;//timer = 20 seconds
+            //Reservation['countdownEnd']=Reservation.countdownStart + 1000*60*5;//timer = 5 minutes
             fs.collection('Reservation ' + uid).doc(event.ID).set(Reservation).then(()=>{
                 console.log('added to reservation page');
+                console.log(Reservation.countdownStart);
             })
         }
         else{

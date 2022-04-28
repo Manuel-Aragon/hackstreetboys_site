@@ -35,8 +35,7 @@ export const IndividualAnnouncement = ({individualAnnouncement}) => {
     <div class="card flex-row">
       <div className="card-body">
         <h4 className="card-title h5 h4-sm"><em className="fas fa-caret-right" aria-hidden="true"></em>
-          <span>{individualAnnouncement.date}</span><em className="fas fa-caret-right" aria-hidden="true"></em>
-          <span>{individualAnnouncement.time}</span> </h4>
+          <span>{individualAnnouncement.date}</span><em className="fas fa-caret-right" aria-hidden="true"></em> </h4>
         <p className="card-text">{individualAnnouncement.title}</p>
           <button onClick={openModal}>Read More</button>
       <Modal

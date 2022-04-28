@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import {Icon} from 'react-icons-kit'
 import {plus} from 'react-icons-kit/feather/plus'
 import {minus} from 'react-icons-kit/feather/minus'
 import {auth,fs} from '../../firebase-config'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+
+
+toast.configure();
 
 export const IndividualReservationProduct = ({reservationProduct,reservationProductIncrease,reservationProductDecrease}) => {
 
@@ -23,14 +28,70 @@ export const IndividualReservationProduct = ({reservationProduct,reservationProd
             }
         })
     }
+
+    const handleNotification = async()=>{
+       const timerComplete = false;
+       if(timerComplete===true){
+           toast.success('Your ticket reservation has been removed from the cart', {
+               position: 'top-right',
+               autoClose: 5000,
+               hideProgressBar: false,
+               closeOnClick: true,
+               pauseOnHover: false,
+               draggable: false,
+               progress: undefined,
+             });
+       }
+    }
+
+    const calculateTimeLeft = () => {
+        var countEnd =  reservationProduct.countdownEnd;
+        let difference  = countEnd - new Date().getTime();
+        let timeLeft = {};
+      
+        if (difference > 0) {
+          timeLeft = {
+            days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+            minutes: Math.floor((difference / 1000 / 60) % 60),
+            seconds: Math.floor((difference / 1000) % 60)
+          };
+        }
+        return timeLeft;
+      }
+
+      const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+      useEffect(() => {
+        const timer = setTimeout(() => {
+          setTimeLeft(calculateTimeLeft());
+        }, 1000);
+      
+        return () => clearTimeout(timer);
+      });
+
+      const timerComponents = [];
+
+      Object.keys(timeLeft).forEach((interval) => {
+        if (!timeLeft[interval]) {
+          return;
+        }
+        console.log(timeLeft[interval]);
+        timerComponents.push(
+          <span>
+            {timeLeft[interval]} {interval}{" "}
+          </span>
+        );
+      });
+
     
     return (
 
         <div className='product'>
             <div className="d-flex justify-content-between align-items-center mt-4 items rounded">
                 <div className="d-flex flex-row">
-                    <div className='product-img'>
-                        <img src={reservationProduct.url} alt="product-img" width="40"/>
+                    <div className='event-Date'>
+                        <span className="font-weight-bold d-block px-2">{reservationProduct.date}</span>
                     </div>
                     <div className="ml-2">
                         <span className="font-weight-bold d-block px-2">{reservationProduct.title}</span>
@@ -50,6 +111,12 @@ export const IndividualReservationProduct = ({reservationProduct,reservationProd
                 </div>
                 <span className="d-block ml-5 font-weight-bold px-4 align-items-center">${reservationProduct.price}</span>
                 <div className='product-text reservation-price '>${reservationProduct.TotalProductPrice}</div>
+                <div className = 'timer-text'>
+                    {timerComponents.length ? timerComponents : <span>Time's up!</span>}                </div>
+                    {!timerComponents.length&&<>
+                    {handleNotification()}
+                    {handleReservationProductDelete()}
+                        </>} 
                 <div className='btn btn-danger btn-md reservation-btn' onClick={handleReservationProductDelete} >DELETE</div>  
             </div>
           

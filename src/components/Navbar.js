@@ -4,6 +4,7 @@ import {auth} from '../firebase-config'
 import {useNavigate} from 'react-router-dom'
 import { GetCurrentUser } from '../App'
 import logo from '../img/hacklogotransparent.png'
+
 export const Navbar = () => {
 
     const navigate = useNavigate();
