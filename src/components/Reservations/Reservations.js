@@ -1,7 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import {Navbar} from '../Navbar'
 import {auth,fs} from '../../firebase-config'
-import { ReservationProducts } from './ReservationProduct'
 import '../Cart/cart.css'
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
@@ -70,43 +69,43 @@ export const Reservations = () => {
     let Ticket;
     
     // cart product increase function
-    const reservationIncrease=(reservation)=>{
-        // console.log(cartTicket);
-        Ticket=reservation;
-        Ticket.qty=Ticket.qty+1;
-        Ticket.TotalProductPrice=Ticket.qty*Ticket.price;
-        // updating in database
-        auth.onAuthStateChanged(user=>{
-            if(user){
-                fs.collection('Reservation ' + user.uid).doc(reservation.ID).update(Ticket).then(()=>{
-                    console.log('increment added');
-                })
-            }
-            else{
-                console.log('user is not logged in to increment');
-            }
-        })
-    }
+    // const reservationIncrease=(reservation)=>{
+    //     // console.log(cartTicket);
+    //     Ticket=reservation;
+    //     Ticket.qty=Ticket.qty+1;
+    //     Ticket.TotalProductPrice=Ticket.qty*Ticket.price;
+    //     // updating in database
+    //     auth.onAuthStateChanged(user=>{
+    //         if(user){
+    //             fs.collection('Reservation ' + user.uid).doc(reservation.ID).update(Ticket).then(()=>{
+    //                 console.log('increment added');
+    //             })
+    //         }
+    //         else{
+    //             console.log('user is not logged in to increment');
+    //         }
+    //     })
+    // }
 
     // cart product decrease functionality
-    const reservationDecrease =(reservation)=>{
-        Ticket=reservation;
-        if(Ticket.qty > 1){
-            Ticket.qty=Ticket.qty-1;
-            Ticket.TotalTicketPrice=Ticket.qty*Ticket.price;
-             // updating in database
-            auth.onAuthStateChanged(user=>{
-                if(user){
-                    fs.collection('Reservation ' + user.uid).doc(reservation.ID).update(Ticket).then(()=>{
-                        console.log('decrement');
-                    })
-                }
-                else{
-                    console.log('user is not logged in to decrement');
-                }
-            })
-        }
-    }
+    // const reservationDecrease =(reservation)=>{
+    //     Ticket=reservation;
+    //     if(Ticket.qty > 1){
+    //         Ticket.qty=Ticket.qty-1;
+    //         Ticket.TotalTicketPrice=Ticket.qty*Ticket.price;
+    //          // updating in database
+    //         auth.onAuthStateChanged(user=>{
+    //             if(user){
+    //                 fs.collection('Reservation ' + user.uid).doc(reservation.ID).update(Ticket).then(()=>{
+    //                     console.log('decrement');
+    //                 })
+    //             }
+    //             else{
+    //                 console.log('user is not logged in to decrement');
+    //             }
+    //         })
+    //     }
+    // }
 
     //checkout
      const navigate = useNavigate();
