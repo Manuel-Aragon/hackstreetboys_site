@@ -1,5 +1,7 @@
-.event-page{margin-top:20px;
-  background:rgb(31, 31, 31)
+.event-page{
+  margin-top:20px;
+  background:rgb(31, 31, 31);
+  padding: 0;
   }
   
   .timeline {

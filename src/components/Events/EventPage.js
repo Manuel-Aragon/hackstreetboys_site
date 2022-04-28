@@ -84,26 +84,20 @@ export const EventPage = (props) => {
         }
     }
 
-    return (
-        <div>        
-            <br></br>
-            <div>
+    return (  
+            <div className='container-fluid bg-dark py-5'>
             {events.length > 0 && (
-                <div className='event-page'>
-                    <div className='container-fluid'>
-                        <br></br>
-                        <div className='events-box'>
-                            
-                            <Events events={events} reserve={reserve}/>
-                        </div>
-                    </div>
+                <div className='events-box'>
+                    
+                    <Events events={events} reserve={reserve}/>
                 </div>
-
             )}
             {events.length < 1 && (
-                <div className='container-fluid'>Please wait....</div>
+                <div className='events-box'>
+                            
+                            Please wait....
+                </div>
             )}
             </div>
-        </div>
     )
 }

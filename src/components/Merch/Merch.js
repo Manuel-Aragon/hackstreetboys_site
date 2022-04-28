@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react'
 import { Products } from './Products'
 import {auth,fs} from '../../firebase-config'
 import {useNavigate} from 'react-router-dom'
-import './Merch.css'
+
 
 
 export const Merch = (props) => {
@@ -101,7 +101,6 @@ export const Merch = (props) => {
                         <div className='container-fluid'>Please wait....</div>
                     )}
             </div>
-            <br></br>
         </div>
     )
 }

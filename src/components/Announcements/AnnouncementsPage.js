@@ -68,7 +68,7 @@ export const AnnouncementsPage = ({title}) => {
 
     return (
         <div>
-            <div className="container-fluid p-2 bg-dark">
+            <div className="container-fluid bg-dark">
                 <div className="row">
                     <div className="col-md-12 d-flex justify-content-center right-bck p-4">
                         <div className="registration-right">

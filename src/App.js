@@ -37,24 +37,27 @@ export function GetCurrentUser(){
 
 export const App = () => {
   return (
-    <BrowserRouter>
-      <Navbar/>
-      <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/Bio' element={<Bio />} />
-          <Route path='/Events' element={<EventPage/>} />
-          <Route path='/Announcements' element={<AnnouncementsPage />} />
-          <Route path='/Merch' element={<Merch />} />
-          <Route path='/Register' element={<Register />} />
-          <Route path='/Login' element={<Login />} />
-          <Route path='/Cart' element ={<Cart />} />
-          <Route path="/add" element={<AddProducts/>}/>    
-          <Route path="/addevent" element={<AddEvents/>}/>
-          <Route path="/addnews" element={<AddAnnouncements/>}/>
-          <Route path='/Reservations' element ={<Reservation />} />
-      </Routes>
-      <Footer/>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <Navbar/>
+        <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/Bio' element={<Bio />} />
+            <Route path='/Events' element={<EventPage/>} />
+            <Route path='/Announcements' element={<AnnouncementsPage />} />
+            <Route path='/Merch' element={<Merch />} />
+            <Route path='/Register' element={<Register />} />
+            <Route path='/Login' element={<Login />} />
+            <Route path='/Cart' element ={<Cart />} />
+            <Route path="/add" element={<AddProducts/>}/>    
+            <Route path="/addevent" element={<AddEvents/>}/>
+            <Route path="/addnews" element={<AddAnnouncements/>}/>
+            <Route path='/Reservations' element ={<Reservation />} />
+        </Routes>
+        <Footer/>
+      </BrowserRouter>
+    </div>
+
   )
 }
 
