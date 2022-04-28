@@ -14,7 +14,9 @@ import {NotFound} from './components/NotFound'
 import {AddProducts} from './components/Merch/AddProduct'
 import {AddEvents} from './components/Events/AddEvent'
 import { AddAnnouncements } from './components/Announcements/AddAnnouncement'
-import { Reservations } from './components/Reservations/Reservations'
+import { Reservation} from './components/Reservations/Reservations'
+import { Navbar } from './components/Navbar'
+import { Footer } from './components/Footer'
 
 export function GetCurrentUser(){
   const [user, setUser]=useState(null);
@@ -37,6 +39,7 @@ export function GetCurrentUser(){
 export const App = () => {
   return (
     <BrowserRouter>
+      <Navbar/>
       <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/Bio' element={<Bio />} />
@@ -49,9 +52,10 @@ export const App = () => {
           <Route path="/add" element={<AddProducts/>}/>    
           <Route path="/addevent" element={<AddEvents/>}/>
           <Route path="/addnews" element={<AddAnnouncements/>}/>
-          <Route path='/Reservations' element ={<Reservations />} />
+          <Route path='/Reservations' element ={<Reservation />} />
           <Route element={NotFound}/>       
       </Routes>
+      <Footer/>
     </BrowserRouter>
   )
 }

@@ -1,14 +1,16 @@
+
+   
 import React,{useState, useEffect} from 'react'
 import {Navbar} from '../Navbar'
 import {auth,fs} from '../../firebase-config'
-import '../Cart/cart.css'
+import { ReservationProducts } from './ReservationProducts';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure();
 
-export const Reservations = () => {
+export const Reservation = () => {
 
     // getting current user function
     function GetCurrentUser(){
@@ -32,18 +34,18 @@ export const Reservations = () => {
     // console.log(user);
     
     // state of cart products
-    const [reservationItems, setReservations]=useState([]);
+    const [reservationProducts, setReservationProducts]=useState([]);
 
     // getting cart products from firestore collection and updating the state
     useEffect(()=>{
         auth.onAuthStateChanged(user=>{
             if(user){
                 fs.collection('Reservation ' + user.uid).onSnapshot(snapshot=>{
-                    const newReservation = snapshot.docs.map((doc)=>({
+                    const newReservationProduct = snapshot.docs.map((doc)=>({
                         ID: doc.id,
                         ...doc.data(),
                     }));
-                    setReservations(newReservation);                    
+                    setReservationProducts(newReservationProduct);                    
                 })
             }
             else{
@@ -52,10 +54,11 @@ export const Reservations = () => {
         })
     },[])
 
+    // console.log(reservationProducts);
 
-    // getting the TotalProductPrice from cartProducts in a seperate array
-    const price = reservationItems.map((reservation)=>{
-        return reservationItems.TotalProductPrice;
+    // getting the TotalProductPrice from reservationProducts in a seperate array
+    const price = reservationProducts.map((reservationProduct)=>{
+        return reservationProduct.TotalProductPrice;
     })
 
     // reducing the price in a single value
@@ -66,46 +69,46 @@ export const Reservations = () => {
     const totalPrice = subtotalPrice*1.08 + shippingPrice;
 
     // global variable
-    //let Ticket;
+    let Product;
     
     // cart product increase function
-    // const reservationIncrease=(reservation)=>{
-    //     // console.log(cartTicket);
-    //     Ticket=reservation;
-    //     Ticket.qty=Ticket.qty+1;
-    //     Ticket.TotalProductPrice=Ticket.qty*Ticket.price;
-    //     // updating in database
-    //     auth.onAuthStateChanged(user=>{
-    //         if(user){
-    //             fs.collection('Reservation ' + user.uid).doc(reservation.ID).update(Ticket).then(()=>{
-    //                 console.log('increment added');
-    //             })
-    //         }
-    //         else{
-    //             console.log('user is not logged in to increment');
-    //         }
-    //     })
-    // }
+    const reservationProductIncrease=(reservationProduct)=>{
+        // console.log(reservationProduct);
+        Product=reservationProduct;
+        Product.qty=Product.qty+1;
+        Product.TotalProductPrice=Product.qty*Product.price;
+        // updating in database
+        auth.onAuthStateChanged(user=>{
+            if(user){
+                fs.collection('Reservation ' + user.uid).doc(reservationProduct.ID).update(Product).then(()=>{
+                    console.log('increment added');
+                })
+            }
+            else{
+                console.log('user is not logged in to increment');
+            }
+        })
+    }
 
     // cart product decrease functionality
-    // const reservationDecrease =(reservation)=>{
-    //     Ticket=reservation;
-    //     if(Ticket.qty > 1){
-    //         Ticket.qty=Ticket.qty-1;
-    //         Ticket.TotalTicketPrice=Ticket.qty*Ticket.price;
-    //          // updating in database
-    //         auth.onAuthStateChanged(user=>{
-    //             if(user){
-    //                 fs.collection('Reservation ' + user.uid).doc(reservation.ID).update(Ticket).then(()=>{
-    //                     console.log('decrement');
-    //                 })
-    //             }
-    //             else{
-    //                 console.log('user is not logged in to decrement');
-    //             }
-    //         })
-    //     }
-    // }
+    const reservationProductDecrease =(reservationProduct)=>{
+        Product=reservationProduct;
+        if(Product.qty > 1){
+            Product.qty=Product.qty-1;
+            Product.TotalProductPrice=Product.qty*Product.price;
+             // updating in database
+            auth.onAuthStateChanged(user=>{
+                if(user){
+                    fs.collection('Reservation ' + user.uid).doc(reservationProduct.ID).update(Product).then(()=>{
+                        console.log('decrement');
+                    })
+                }
+                else{
+                    console.log('user is not logged in to decrement');
+                }
+            })
+        }
+    }
 
     //checkout
      const navigate = useNavigate();
@@ -124,8 +127,8 @@ export const Reservations = () => {
               });
               
               const uid = auth.currentUser.uid;
-              const reservations = await fs.collection('Reservation ' + uid).get();
-              for(var snap of reservations.docs){
+              const carts = await fs.collection('Reservation ' + uid).get();
+              for(var snap of carts.docs){
                   fs.collection('Reservation ' + uid).doc(snap.id).delete();
               }
         }
@@ -133,34 +136,6 @@ export const Reservations = () => {
             alert('Something went wrong in checkout');
         }
      }
-// Set the date we're counting down to
-var countDownDate = new Date().getTime()+(1000)*6*10;
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s ";
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
-
-
    
     return (
         <>
@@ -172,20 +147,17 @@ var x = setInterval(function() {
                         <div className="col-md-8">
                             <div className="product-details mr-2">
                                 <h6 className="mb-0">Shopping cart</h6>
-                                {setInterval(() => {
-                                    
-                                }, 1)}
-                                <div className="d-flex justify-content-between"><span>You have {reservationItems.length} items in your cart</span>
+                                <div className="d-flex justify-content-between"><span>You have {reservationProducts.length} items in your cart</span>
                                 </div>
-                                {/* {reservationItems.length > 0 && (
+                                {reservationProducts.length > 0 && (
                                         <div className='products-box'>
-                                            <ReservationProducts reservationItems={reservationItems}
-                                            reservationIncrease={reservationIncrease}
-                                            reservationDecrease={reservationDecrease}
+                                            <ReservationProducts reservationProducts={reservationProducts}
+                                            reservationProductIncrease={reservationProductIncrease}
+                                            reservationProductDecrease={reservationProductDecrease}
                                             />
                                         </div>
-                                )} */}
-                                {reservationItems.length < 1 && (
+                                )}
+                                {reservationProducts.length < 1 && (
                                     <div className='container-fluid'>No products to show</div>
                                 ) }    
                             </div>
