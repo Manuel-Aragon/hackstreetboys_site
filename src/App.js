@@ -10,7 +10,6 @@ import { Register } from './components/Register'
 import { Login } from './components/Login'
 import {auth,fs} from './firebase-config'
 import { Cart } from './components/Cart/Cart'
-import {NotFound} from './components/NotFound'
 import {AddProducts} from './components/Merch/AddProduct'
 import {AddEvents} from './components/Events/AddEvent'
 import { AddAnnouncements } from './components/Announcements/AddAnnouncement'
@@ -53,7 +52,6 @@ export const App = () => {
           <Route path="/addevent" element={<AddEvents/>}/>
           <Route path="/addnews" element={<AddAnnouncements/>}/>
           <Route path='/Reservations' element ={<Reservation />} />
-          <Route render={() => <h1>404: page not found</h1>} />
       </Routes>
       <Footer/>
     </BrowserRouter>
